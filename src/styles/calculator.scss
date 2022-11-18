@@ -1,0 +1,55 @@
+@import './variables';
+
+
+.calculatorBlock {
+  box-shadow: $box-shadow;
+  padding: 0;
+  max-width: 400px;
+  margin: auto;
+}
+  
+  .previousValueTextElement {
+    font-size: 1.5rem;
+    min-height: 50px;
+    line-height: 50px;
+  }
+  
+  .currentValueTextElement {
+    font-size: 2.2rem;
+    min-height: 60px;
+    line-height: 50px;
+  }
+  
+  .output {
+    background-color: var(--bgThemeColor5);
+    padding: 0;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+  
+  .calculatorBtn {
+    height: 60px;
+    font-size: 1.4rem;
+    color: var(--textThemeColor1);
+    background-color: var(--bgThemeColor1);
+    border: 1px solid grey;
+  }
+  
+  .button1 {
+    width: 25%;
+  }
+  
+  .button2 {
+    width: 50%;
+  }
+  
+  .output>div {
+    padding: 0 10px;
+    text-align: right;
+    overflow-wrap: break-word;
+    color: var(--textThemeColor6);
+  }

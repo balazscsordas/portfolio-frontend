@@ -1,0 +1,90 @@
+@import './variables';
+
+#weather-app-section {
+
+    .unit-choose-block {
+        text-align: center;
+      }
+      
+      .unit-input-block {
+        display: inline-block;
+        margin: 0 15px;
+      }
+      
+      .weather-app-container {
+        max-width: 1000px;
+      }
+      
+      .unit-choose-title {
+        margin-bottom: 20px;
+      }
+
+      label {
+        color: var(--textThemeColor1);
+        margin-left: 5px;
+      }
+      
+      .data-title {
+        text-align: center;
+        padding-top: 20px;
+      }
+      
+      .city-name-input-block {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        max-width: 400px;
+        margin: 30px auto;
+      }
+
+      button {
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+      
+      .city-input {
+        margin: 10px;
+        width: auto;
+        display: inline-block;
+        background-color: var(--bgThemeColor4);
+        box-shadow: $box-shadow;
+      }
+
+      input#outlined-basic {
+        color: var(--textThemeColor1);
+      }
+      
+      .data-container {
+        max-width: 500px;
+        margin: auto;
+        border-radius: 20px;
+        box-shadow: $box-shadow;
+        background-color: var(--bgThemeColor4);
+        padding: 0;
+      }
+      
+      .weather-for {
+        background-image: linear-gradient(to top left, #feb020, #ffd05c);
+        margin: 30px auto;
+      }
+      
+      .weather-for h3 {
+        line-height: 2;
+        margin-bottom: 0;
+      }
+      
+      .temperature {
+        font-size: 2rem;
+        text-align: center;
+        margin: auto;
+        color: var(--textThemeColor1);
+      }
+      
+      .img-col {
+        text-align: center;
+      }
+      
+      .wind-row {
+        text-align: center;
+      }
+}

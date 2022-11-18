@@ -1,0 +1,101 @@
+@import './variables';
+
+#game-section {
+  text-align: center;
+  
+  .row {
+      justify-content: center;
+  }
+    
+  .game-container {
+    display: block;
+    max-width: 600px;
+    margin: auto;
+
+  }
+
+  .btn {
+    max-width: 250px;
+    border: 8px solid rgb(33, 33, 33);
+    width: 50%;
+    aspect-ratio: 1 / 1;
+  }
+
+  .red {
+    background-color: rgb(240, 33, 33);
+    border-top-right-radius: $game-radius;
+  }
+
+  .green {
+    background-color: rgb(33, 184, 33);
+    border-top-left-radius: $game-radius;
+  }
+
+  .blue {
+    background-color: rgb(89, 89, 245);
+    border-bottom-right-radius: $game-radius;
+  }
+
+  .yellow {
+    background-color: rgb(243, 243, 31);
+    border-bottom-left-radius: $game-radius;
+  }
+
+  #game-container {
+    .buttons-block {
+      position: relative;
+    }
+
+    .game-center-button {
+      position: absolute;
+      z-index: 10;
+      top: 50%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: chocolate;
+      transform: translate(-50%, -50%);
+      border: 8px solid rgb(33, 33, 33);
+    }
+  }
+}
+
+.ranklist {
+  box-shadow: $box-shadow;
+  border-radius: 30px;
+  background-color: var(--bgThemeColor4);
+  padding: 10px 20px;
+  max-width: 350px;
+  margin: auto;
+
+  span {
+    display: table-cell;
+    font-weight: 400;
+  }
+
+  span.index {
+    width: 20px;
+  }
+
+  span.name {
+    width: 100%;
+  }
+
+  span.score {
+    color: green;
+  }
+
+  .ranklist-row {
+    padding: 8px 20px;
+    background-color: #e2e5ff;
+    margin: 10px auto;
+    border-radius: 10px;
+  }
+
+  h3 {
+    margin-bottom: 20px;
+  }
+
+  
+}

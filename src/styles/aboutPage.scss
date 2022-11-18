@@ -1,0 +1,35 @@
+@import './variables';
+
+.technologies-row {
+  text-align: center;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.technologies span {
+  display: inline-block;
+  padding: 8px;
+  border-radius: 5px;
+  margin: 8px;
+  background-color: var(--bgThemeColor6);
+  color: white;
+}
+
+#about-me-section {
+  
+  .about-me-title {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  
+  p {
+    margin: 20px 0;
+    line-height: 1.8;
+  }
+  
+  a:hover {
+    color:white;
+  }
+}
+
