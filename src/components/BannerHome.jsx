@@ -1,22 +1,29 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { Button } from '@mui/material';
+import image from '../images/en.jpg';
 
 function BannerHome() {
 
     return (
         <section id="banner-home-section">
+                
             <Container>
                 <Row>
-                    <Col lg={6} className="banner-home-col-1 h-100">
-                        <div>
-                            <h1>Balazs Csordas</h1>
+                    <h1 className="main-h1">Welcome to my portfolio website</h1>
+                    <div className="avatar-block">
+                        <img 
+                            className="avatar-image"
+                            src={image} 
+                            alt="me"
+                        />
+                        <div className="avatar-description">
+                            <h2>Balazs Csordas</h2>
                             <p>Full Stack Web Developer</p>
                             <Button className="portfolio-button-1" href="#projects-section" variant="contained">my projects</Button>
                         </div>
-                    </Col>
+                    </div>
                 </Row>
             </Container>
         </section>

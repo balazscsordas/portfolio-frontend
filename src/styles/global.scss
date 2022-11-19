@@ -93,6 +93,12 @@ h2, h3 {
       }
 }
 
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
 @media screen and (max-width: 600px) {
     h2 {
         font-size: 1.8rem;

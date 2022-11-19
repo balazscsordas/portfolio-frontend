@@ -6,7 +6,7 @@ function Footer() {
     return (
         <footer className="mt-auto">
             <Container className="footerInnerContainer">
-                <ul className="nav justify-content-center border-bottom pb-3 mb-3">
+                <ul className="nav justify-content-center pb-3 mb-3">
                     <SocialLinks />
                 </ul>
                 <p className="text-center text-muted copyright-text">© Balazs Csordas</p>

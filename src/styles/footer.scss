@@ -1,13 +1,16 @@
 @import './variables';
 
 footer {
-
     .footerInnerContainer {
         margin-top: 30px;
     }
 
     .nav {
         width: 100%;
+    }
+    
+    ul {
+        border-bottom: 1px solid var(--textThemeColor1)
     }
 
     .copyright-text {
