@@ -29,7 +29,7 @@ function LoginForm() {
   function sendLoginData (data) {
     const options = {
       method: "GET",
-      url: `${process.env.REACT_APP_BASEURL}/api/login`,
+      url: process.env.REACT_APP_BASEURL + "/api/login",
       params: {loginData: data}
     }
     axios.request(options).then(response => {

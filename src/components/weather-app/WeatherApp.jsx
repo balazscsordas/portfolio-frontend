@@ -47,7 +47,7 @@ function WeatherApp() {
     function getWeatherData() {
         const options = {
             method: "GET",
-            url: `${process.env.REACT_APP_BASEURL}/api/get-weather-data`,
+            url: process.env.REACT_APP_BASEURL + "/api/get-weather-data",
             params: {cityNameInput: cityName, radioInput: radioInput},
         }
 
