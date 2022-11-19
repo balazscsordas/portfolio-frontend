@@ -10,7 +10,7 @@ function GameResults () {
     function getDataForRanklist() {
         const options = {
             method: "GET",
-            url: "https://balazscsordas-api.onrender.com/api/ranklist"
+            url: `${process.env.REACT_APP_BASEURL}/api/ranklist`
         }
         axios.request(options).then(request => {
             setRanklistUsers(request.data.foundUsers);

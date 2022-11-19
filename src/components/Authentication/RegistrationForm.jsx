@@ -45,7 +45,7 @@ function RegistrationForm() {
   function sendRegistrationData (registrationData) {
       const options = {
           method: "GET",
-          url: "https://balazscsordas-api.onrender.com/api/registration",
+          url: `${process.env.REACT_APP_BASEURL}/api/registration`,
           params: {registrationData: registrationData}
       }
       axios.request(options).then(response => {
