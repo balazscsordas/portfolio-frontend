@@ -47,7 +47,7 @@ function WeatherApp() {
     function getWeatherData() {
         const options = {
             method: "GET",
-            url: "/api/get-weather-data",
+            url: "https://balazscsordas-api.onrender.com/api/get-weather-data",
             params: {cityNameInput: cityName, radioInput: radioInput},
         }
 

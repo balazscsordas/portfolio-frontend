@@ -120,7 +120,7 @@ function Game() {
   function sendNewRecord() {
     const options = {
       method: "PATCH",
-      url: "/api/setNewRecord",
+      url: "https://balazscsordas-api.onrender.com/api/setNewRecord",
       params: {email: auth.email, record: currentScore}
     }
     axios.request(options).catch(err => {

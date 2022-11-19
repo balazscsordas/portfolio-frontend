@@ -10,7 +10,7 @@ function GameResults () {
     function getDataForRanklist() {
         const options = {
             method: "GET",
-            url: "/api/ranklist"
+            url: "https://balazscsordas-api.onrender.com/api/ranklist"
         }
         axios.request(options).then(request => {
             setRanklistUsers(request.data.foundUsers);

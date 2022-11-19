@@ -29,7 +29,7 @@ function LoginForm() {
   function sendLoginData (data) {
     const options = {
       method: "GET",
-      url: "/api/login",
+      url: "https://balazscsordas-api.onrender.com/api/login",
       params: {loginData: data}
     }
     axios.request(options).then(response => {
