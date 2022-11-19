@@ -61,7 +61,7 @@ function WeatherApp() {
                     temperature: response.data.main.temp,
                     windSpeed: response.data.wind.speed,
                     country: response.data.sys.country,
-                    resultImage: "http://openweathermap.org/img/wn/" + response.data.weather[0].icon + "@2x.png",
+                    resultImage: "https://openweathermap.org/img/wn/" + response.data.weather[0].icon + "@2x.png",
                     cod: response.data.cod,
                     pressure: response.data.main.pressure
                 })
