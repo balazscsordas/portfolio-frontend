@@ -40,7 +40,7 @@ h2, h3 {
 }
 
 .mbt { // margin-bottom on titles
-    margin-bottom: 40px!important;
+    margin-bottom: 30px!important;
     text-align: center;
 }
 
@@ -59,6 +59,10 @@ h2, h3 {
     svg {
         color: var(--textThemeColor1);
     }
+}
+
+#rules-section {
+    text-align: center;
 }
 
 #banner-pages-section {
@@ -87,10 +91,6 @@ h2, h3 {
         max-width: 1000px;
         line-height: 1.8;
       }
-    
-    .project-description-title {
-        margin-bottom: 30px;
-    }
 }
 
 @media screen and (max-width: 600px) {

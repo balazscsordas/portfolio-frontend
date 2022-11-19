@@ -92,17 +92,18 @@ function RegistrationForm() {
   // Password requirements error text check
 
   useEffect (() => {
-    if(registrationData.password.length >= 8) {
-      setPasswordLengthError(<CheckIcon className="check-icon"/>);
-    }
-    if(validator.isStrongPassword(registrationData.password, {minLength: 0, minLowercase: 0, minUppercase: 0, minNumbers: 1, minSymbols: 1})) {
-      setPasswordNumberSymbolError(<CheckIcon className="check-icon"/>);
-    }
-    if(validator.isStrongPassword(registrationData.password, {minLength: 0, minLowercase: 1, minUppercase: 1, minNumbers: 0, minSymbols: 0})) {
-      setPasswordLowerUpperError(<CheckIcon className="check-icon"/>);
-    }
-    }, 
-    [registrationData.password])
+    registrationData.password.length >= 8
+      ? setPasswordLengthError(<CheckIcon className="check-icon"/>)
+      : setPasswordLengthError(<CloseIcon className="close-icon"/>)
+    
+    validator.isStrongPassword(registrationData.password, {minLength: 0, minLowercase: 0, minUppercase: 0, minNumbers: 1, minSymbols: 1})
+      ? setPasswordNumberSymbolError(<CheckIcon className="check-icon"/>)
+      : setPasswordNumberSymbolError(<CloseIcon className="close-icon"/>)
+
+    validator.isStrongPassword(registrationData.password, {minLength: 0, minLowercase: 1, minUppercase: 1, minNumbers: 0, minSymbols: 0})
+      ? setPasswordLowerUpperError(<CheckIcon className="check-icon"/>)
+      : setPasswordLowerUpperError(<CloseIcon className="close-icon"/>)
+    }, [registrationData.password])
 
   return (
       <section id="registration-section">

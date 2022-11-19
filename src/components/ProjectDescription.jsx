@@ -9,7 +9,7 @@ function ProjectDescription(props) {
         <section id="project-description-section" className="mt">
             <Container className="project-description-block">
                 <Row>
-                    <h2 className="project-description-title">Project Description</h2>
+                    <h2 className="project-description-title mbt">Project Description</h2>
                     <p>{props.description}</p>
                 </Row>
 
