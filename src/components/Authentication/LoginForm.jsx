@@ -24,7 +24,7 @@ function LoginForm() {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    sendLoginData(loginData);
+    //sendLoginData(loginData);
   };
 
 

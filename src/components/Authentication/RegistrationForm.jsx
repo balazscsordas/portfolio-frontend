@@ -28,7 +28,16 @@ function RegistrationForm() {
   // Submit handling
 
   const handleSubmit = (event) => {
-      event.preventDefault();
+      event.preventDefault();/* 
+      if (emailValidationCheck(registrationData.email) === true && passwordValidationCheck(registrationData.password) === true) {
+        sendRegistrationData(registrationData);
+        setRegistrationData({
+          name: "",
+          email: "",
+          password: ""
+        });
+        setEmailCheckMessage("");
+      } */
   };
   
   // API connection with backend
