@@ -29,13 +29,16 @@ function WeatherApp() {
         pressure: ""
     });
 
+    
     function changeCityValue(event) {
         setCityName(event.target.value);
     }
 
+
     function changeRadioInput(event) {
         setRadioInput(event.target.value);
     }
+
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -44,12 +47,11 @@ function WeatherApp() {
     }
 
 
-    async function getWeatherData() {
-        
-        const url = process.env.REACT_APP_BASEURL + "/api/get-weather-data";
-        const params = {cityNameInput: cityName, radioInput: radioInput};
-        
-        await axios.post(url, params).then(response => {
+    const getWeatherData = async () => {
+        try {
+            const url = process.env.REACT_APP_BASEURL + "/api/get-weather-data";
+            const params = {cityNameInput: cityName, radioInput: radioInput};
+            const response = await axios.post(url, params);
             if (response.data.cod === "404") {
                 setErrorMessage("Invalid city name, please add another!");
             } else {
@@ -66,11 +68,10 @@ function WeatherApp() {
                 unitChanger(radioInput);
                 setErrorMessage("");
             }
-            
-        })
-        .catch (error => {
-            console.log(error);
-        });
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
 
 function unitChanger (unit) {

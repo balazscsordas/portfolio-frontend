@@ -29,31 +29,20 @@ function RegistrationForm() {
 
   const handleSubmit = (event) => {
       event.preventDefault();
-      if (emailValidationCheck(registrationData.email) === true && passwordValidationCheck(registrationData.password) === true) {
-        sendRegistrationData(registrationData);
-        setRegistrationData({
-          name: "",
-          email: "",
-          password: ""
-        });
-        setEmailCheckMessage("");
-      }
   };
   
   // API connection with backend
 
-  async function sendRegistrationData (registrationData) {
-
-      const url = process.env.REACT_APP_BASEURL + "/api/registration";
-      const params = {registrationData: registrationData};
-      
-      await axios.post(url, params).then(response => {
+  const sendRegistrationData = async (registrationData) => {
+      try {
+        const url = process.env.REACT_APP_BASEURL + "/api/registration";
+        const params = {registrationData: registrationData};
+        const response = await axios.post(url, params);
         setRegistrationMessage(response.data.message);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  }
+      } catch(err) {
+        console.log(err);
+      }
+    }
 
   // OnChange function
 

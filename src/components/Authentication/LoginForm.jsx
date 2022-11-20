@@ -21,18 +21,19 @@ function LoginForm() {
   })
   const [loginMessage, setLoginMessage] = useState("");
   
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     sendLoginData(loginData);
   };
 
 
-  async function sendLoginData (data) {
-    
-    const url = process.env.REACT_APP_BASEURL + "/api/login"
-    const params = {loginData: data};
-
-    await axios.post(url, params).then(response => {
+  const sendLoginData = async (data) => {
+    try {
+      const url = process.env.REACT_APP_BASEURL + "/api/login";
+      const params = {loginData: data};
+      const response = await axios.post(url, params);
+      
       const name = response?.data?.name;
       const email = response?.data?.email;
       const bestScore = response?.data?.bestScore;
@@ -50,12 +51,11 @@ function LoginForm() {
         })
         navigate(from, { replace: true });
       }
-    })
-    .catch(error => {
-      console.log(error);
-    })
+    } 
+    catch(err) {
+      console.log(err);
+    }
   }
-
   
   function handleLoginDataChange(event) {
     const {name, value} = event.target;
