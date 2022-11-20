@@ -49,7 +49,7 @@ function WeatherApp() {
 
     const getWeatherData = async () => {
         try {
-            const url = process.env.REACT_APP_BASEURL + "/api/get-weather-data";
+            const url = "https://balazscsordas-api.onrender.com/api/get-weather-data";
             const params = {cityNameInput: cityName, radioInput: radioInput};
             const response = await axios.post(url, params);
             if (response.data.cod === "404") {
