@@ -26,13 +26,13 @@ function LoginForm() {
     sendLoginData(loginData);
   };
 
-  function sendLoginData (data) {
-    const options = {
-      method: "POST",
-      url: process.env.REACT_APP_BASEURL + "/api/login",
-      params: {loginData: data}
-    }
-    axios.request(options).then(response => {
+
+  async function sendLoginData (data) {
+    
+    const url = process.env.REACT_APP_BASEURL + "/api/login"
+    const params = {loginData: data};
+
+    await axios.post(url, params).then(response => {
       const name = response?.data?.name;
       const email = response?.data?.email;
       const bestScore = response?.data?.bestScore;

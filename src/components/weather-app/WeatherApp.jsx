@@ -44,14 +44,12 @@ function WeatherApp() {
     }
 
 
-    function getWeatherData() {
-        const options = {
-            method: "GET",
-            url: process.env.REACT_APP_BASEURL + "/api/get-weather-data",
-            params: {cityNameInput: cityName, radioInput: radioInput},
-        }
-
-        axios.request(options).then(response => {
+    async function getWeatherData() {
+        
+        const url = process.env.REACT_APP_BASEURL + "/api/get-weather-data";
+        const params = {cityNameInput: cityName, radioInput: radioInput};
+        
+        await axios.post(url, params).then(response => {
             if (response.data.cod === "404") {
                 setErrorMessage("Invalid city name, please add another!");
             } else {

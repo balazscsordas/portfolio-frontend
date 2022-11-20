@@ -42,13 +42,12 @@ function RegistrationForm() {
   
   // API connection with backend
 
-  function sendRegistrationData (registrationData) {
-      const options = {
-          method: "POST",
-          url: process.env.REACT_APP_BASEURL + "/api/registration",
-          params: {registrationData: registrationData}
-      }
-      axios.request(options).then(response => {
+  async function sendRegistrationData (registrationData) {
+
+      const url = process.env.REACT_APP_BASEURL + "/api/registration";
+      const params = {registrationData: registrationData};
+      
+      await axios.post(url, params).then(response => {
         setRegistrationMessage(response.data.message);
       })
       .catch(error => {
