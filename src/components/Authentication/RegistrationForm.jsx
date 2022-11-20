@@ -28,7 +28,7 @@ function RegistrationForm() {
   // Submit handling
 
   const handleSubmit = (event) => {
-      event.preventDefault();/* 
+      event.preventDefault();
       if (emailValidationCheck(registrationData.email) === true && passwordValidationCheck(registrationData.password) === true) {
         sendRegistrationData(registrationData);
         setRegistrationData({
@@ -37,12 +37,12 @@ function RegistrationForm() {
           password: ""
         });
         setEmailCheckMessage("");
-      } */
+      }
   };
   
   // API connection with backend
 
- /*  const sendRegistrationData = async (registrationData) => {
+  const sendRegistrationData = async (registrationData) => {
       try {
         const url = process.env.REACT_APP_BASEURL + "/api/registration";
         const params = {registrationData: registrationData};
@@ -51,7 +51,7 @@ function RegistrationForm() {
       } catch(err) {
         console.log(err);
       }
-    } */
+    }
 
   // OnChange function
 
@@ -67,7 +67,7 @@ function RegistrationForm() {
 
   // Email requirements check
 
-  /* function emailValidationCheck(email) {
+  function emailValidationCheck(email) {
     if (validator.isEmail(email)) {
       setRegistrationMessage("");
       setEmailCheckMessage("");
@@ -75,20 +75,20 @@ function RegistrationForm() {
     } else {
       setEmailCheckMessage('Enter a valid Email');
     }
-  } */
+  }
 
   // Password requirements check
 
-  /* function passwordValidationCheck(password) {
+  function passwordValidationCheck(password) {
     if(validator.isStrongPassword(password, {minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1})) {
       return true;
       }
-  } */
+  }
 
 
   // Password requirements error text check
 
-  /* useEffect (() => {
+  useEffect (() => {
     registrationData.password.length >= 8
       ? setPasswordLengthError(<CheckIcon className="check-icon"/>)
       : setPasswordLengthError(<CloseIcon className="close-icon"/>)
@@ -100,11 +100,11 @@ function RegistrationForm() {
     validator.isStrongPassword(registrationData.password, {minLength: 0, minLowercase: 1, minUppercase: 1, minNumbers: 0, minSymbols: 0})
       ? setPasswordLowerUpperError(<CheckIcon className="check-icon"/>)
       : setPasswordLowerUpperError(<CloseIcon className="close-icon"/>)
-    }, [registrationData.password]) */
+    }, [registrationData.password])
 
   return (
       <section id="registration-section">
-        {/* <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs">
           <Box className="login-box">
             <h2>Registration</h2>
             <Box className="form" component="form" onSubmit={handleSubmit}>
@@ -165,7 +165,7 @@ function RegistrationForm() {
                   <p>{registrationMessage}</p>
               </div>
           </Zoom>
-        </Container> */}
+        </Container>
       </section>
   );
 }

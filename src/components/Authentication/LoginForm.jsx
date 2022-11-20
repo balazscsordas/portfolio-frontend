@@ -24,11 +24,11 @@ function LoginForm() {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    //sendLoginData(loginData);
+    sendLoginData(loginData);
   };
 
 
-  /* const sendLoginData = async (data) => {
+  const sendLoginData = async (data) => {
     try {
       const url = process.env.REACT_APP_BASEURL + "/api/login";
       const params = {loginData: data};
@@ -55,7 +55,7 @@ function LoginForm() {
     catch(err) {
       console.log(err);
     }
-  } */
+  }
   
   function handleLoginDataChange(event) {
     const {name, value} = event.target;
@@ -75,7 +75,7 @@ function LoginForm() {
   return (
     <section id="login-section">
       <Container component="main" maxWidth="xs">
-       {/*  {auth.name
+        {auth.name
           ? <Box className="login-box">
               <h2>Hello {auth.name}</h2>
               <Button className="log-out-button" variant="contained" onClick={signOut}>Log out</Button>
@@ -115,7 +115,7 @@ function LoginForm() {
                 </div>
               </Zoom>
           </Box>
-        } */}
+        }
       </Container>
       
     </section>
