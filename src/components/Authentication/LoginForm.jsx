@@ -75,7 +75,7 @@ function LoginForm() {
   return (
     <section id="login-section">
       <Container component="main" maxWidth="xs">
-        {auth.name
+       {/*  {auth.name
           ? <Box className="login-box">
               <h2>Hello {auth.name}</h2>
               <Button className="log-out-button" variant="contained" onClick={signOut}>Log out</Button>
@@ -115,7 +115,7 @@ function LoginForm() {
                 </div>
               </Zoom>
           </Box>
-        }
+        } */}
       </Container>
       
     </section>

@@ -104,7 +104,7 @@ function RegistrationForm() {
 
   return (
       <section id="registration-section">
-        <Container component="main" maxWidth="xs">
+        {/* <Container component="main" maxWidth="xs">
           <Box className="login-box">
             <h2>Registration</h2>
             <Box className="form" component="form" onSubmit={handleSubmit}>
@@ -165,7 +165,7 @@ function RegistrationForm() {
                   <p>{registrationMessage}</p>
               </div>
           </Zoom>
-        </Container>
+        </Container> */}
       </section>
   );
 }
