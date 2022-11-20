@@ -28,7 +28,7 @@ function LoginForm() {
 
   function sendLoginData (data) {
     const options = {
-      method: "GET",
+      method: "POST",
       url: process.env.REACT_APP_BASEURL + "/api/login",
       params: {loginData: data}
     }
