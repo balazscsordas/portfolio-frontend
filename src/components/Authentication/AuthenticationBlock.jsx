@@ -11,10 +11,10 @@ function AuthenticationBlock() {
             <Container>
                 <Row>
                     <Col lg={6}>
-                        {/* <RegistrationForm /> */}
+                        <RegistrationForm />
                     </Col>
                     <Col lg={6}>
-                        {/* <LoginForm /> */}
+                        <LoginForm />
                     </Col>
                 </Row>
             </Container>
