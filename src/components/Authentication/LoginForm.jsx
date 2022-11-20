@@ -28,7 +28,7 @@ function LoginForm() {
   };
 
 
-  const sendLoginData = async (data) => {
+  /* const sendLoginData = async (data) => {
     try {
       const url = process.env.REACT_APP_BASEURL + "/api/login";
       const params = {loginData: data};
@@ -55,7 +55,7 @@ function LoginForm() {
     catch(err) {
       console.log(err);
     }
-  }
+  } */
   
   function handleLoginDataChange(event) {
     const {name, value} = event.target;
