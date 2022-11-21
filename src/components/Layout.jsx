@@ -13,6 +13,10 @@ function Layout() {
 
     useEffect(() => {
         setLocalStorageTheme(window.localStorage.getItem('theme'));
+    }, [])
+
+    useEffect(() => {
+        setLocalStorageTheme(window.localStorage.getItem('theme'));
     }, [theme])
     
     return (
