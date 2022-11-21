@@ -35,6 +35,12 @@ function Header() {
 
     // Theme for offcanvas
     useEffect(() => {
+        if (!localStorage.getItem('theme')) {
+            setLocalStorageTheme("light-mode");
+        }
+    }, []);
+
+    useEffect(() => {
         setLocalStorageTheme(window.localStorage.getItem('theme'));
     }, [theme])
 
