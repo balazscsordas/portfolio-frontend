@@ -37,8 +37,8 @@ function Header() {
 
     // Button default state
     useEffect(() => {
-        localStorage.getItem('theme') === "light-mode" ? setChecked(false) : setChecked(true);
-    }, []);
+        theme === "light-mode" ? setChecked(false) : setChecked(true);
+    }, [theme]);
 
     return (
         <section id="navbar-section" className="fixed-top">
