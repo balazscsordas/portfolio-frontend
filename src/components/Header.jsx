@@ -19,7 +19,6 @@ function Header() {
     const { theme, setTheme } = useTheme();
     const [checked, setChecked] = useState(false);
     const [expanded, setExpanded] = useState(false);
-    const [localStorageTheme, setLocalStorageTheme] = useState(localStorage.getItem('theme'));
 
     function signOut() {
         setAuth("");
@@ -27,22 +26,14 @@ function Header() {
 
     function changeTheme(event) {
         localStorage.getItem('theme') === "light-mode" 
-            ? localStorage.setItem('theme', 'dark-mode') 
+            ? localStorage.setItem('theme', 'dark-mode')
             : localStorage.setItem('theme', 'light-mode');
-        theme === "light-mode" ? setTheme("dark-mode") : setTheme("light-mode");
+        theme === "light-mode" 
+            ? setTheme("dark-mode")
+            : setTheme("light-mode");
         setChecked(event.target.checked);
     }
 
-    // Theme for offcanvas
-    useEffect(() => {
-        if (!localStorage.getItem('theme')) {
-            setLocalStorageTheme("light-mode");
-        }
-    }, []);
-
-    useEffect(() => {
-        setLocalStorageTheme(window.localStorage.getItem('theme'));
-    }, [theme])
 
     // Button default state
     useEffect(() => {
@@ -57,10 +48,10 @@ function Header() {
                 <Navbar.Toggle 
                     aria-controls="offcanvasNavbar-expand-lg" 
                     onClick={() => setExpanded(expanded ? false : "expanded")}
-                    className={localStorageTheme}
+                    className={theme}
                 />
                 <Navbar.Offcanvas
-                    className={localStorageTheme}
+                    className={theme}
                     aria-labelledby="offcanvasNavbar-expand-lg"
                     placement="end"
                     >
