@@ -12,8 +12,11 @@ function Layout() {
     const [localStorageTheme, setLocalStorageTheme] = useState(localStorage.getItem('theme'));
 
     useEffect(() => {
-        setLocalStorageTheme(window.localStorage.getItem('theme'));
-    }, [])
+        if (!localStorage.getItem('theme')) {
+            localStorage.setItem('theme', "light-mode");
+            setLocalStorageTheme("light-mode");
+        }
+    }, []);
 
     useEffect(() => {
         setLocalStorageTheme(window.localStorage.getItem('theme'));
