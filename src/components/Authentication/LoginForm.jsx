@@ -34,8 +34,8 @@ function LoginForm() {
       const params = {loginData: data};
       const response = await axios.post(url, params);
       
+      const id = response?.data?.id;
       const name = response?.data?.name;
-      const email = response?.data?.email;
       const bestScore = response?.data?.bestScore;
 
       setLoginMessage(response.data.message);
@@ -45,8 +45,8 @@ function LoginForm() {
           password: ""
         })
         setAuth({
+          id: id,
           name: name,
-          email: email,
           bestScore: bestScore
         })
         navigate(from, { replace: true });

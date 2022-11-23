@@ -9,7 +9,7 @@ function Note(props) {
 
   return (
     <Col md={4} className="note-block">
-      <Zoom in={props.title}>
+      <Zoom in={props.title && true}>
         <div className="note">
           <h1>{props.title}</h1>
           <p>{props.content}</p>

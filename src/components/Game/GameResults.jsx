@@ -7,18 +7,17 @@ function GameResults () {
     const { auth } = useAuth();
     const [ranklistUsers, setRanklistUsers] = useState([]);
 
-    function getDataForRanklist() {
-        const options = {
-            method: "GET",
-            url: process.env.REACT_APP_BASEURL + "/api/ranklist"
+    const getDataForRanklist = async () => {
+        try {
+            const url = process.env.REACT_APP_BASEURL + "/api/ranklist";
+            const response = await axios.get(url);
+            response && setRanklistUsers(response.data.foundUsers);
         }
-        axios.request(options).then(request => {
-            setRanklistUsers(request.data.foundUsers);
-        })
-        .catch(err => {
+        catch(err) {
             console.log(err);
-        })
+        }
     }
+
 
     useEffect(() => {
         getDataForRanklist();

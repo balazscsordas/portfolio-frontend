@@ -122,7 +122,7 @@ function Game() {
       method: "PATCH",
       
       url: process.env.REACT_APP_BASEURL + "/api/setNewRecord",
-      params: {email: auth.email, record: currentScore}
+      params: {id: auth.id, record: currentScore}
     }
     axios.request(options).catch(err => {
       console.log(err);

@@ -6,8 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/index.scss';
 import useTheme from '../hooks/useTheme';
 
-function Layout() {
 
+
+function Layout() {
     const { theme } = useTheme();
     
     return (

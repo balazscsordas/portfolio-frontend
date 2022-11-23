@@ -12,8 +12,26 @@ import GamePage from "./pages/GamePage";
 import RequireAuth from './components/RequireAuth';
 import { AuthProvider } from './context/AuthProvider';
 import { ThemeProvider } from './context/ThemeProvider';
+import axios from 'axios';
+import { useEffect } from "react";
 
 function App() {
+
+  useEffect(() => {
+    sendFirstRequest();
+  }, []);
+
+  const sendFirstRequest = async () => {
+      try {
+          const url = process.env.REACT_APP_BASEURL + "/api/server-start-request";
+          const response = await axios.get(url);
+          console.log(response.data.message);
+      }
+      catch (err) {
+          console.log(err);
+      }
+  }
+
   return (
     <BrowserRouter>
       <ThemeProvider>

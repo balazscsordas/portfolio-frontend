@@ -16,8 +16,8 @@ function AboutMeContent() {
                     <Col lg={7}>
                         <h3>My name is Balazs Csordas, and this is my story!</h3>
                         <p>I am a {new Date().getFullYear() - 1996} years old guy from Hungary with mechanical engineering degree, who is passionate about coding and decided to transition from engineering to software developement.</p>
-                        <p>I have been learning web developement since 2022.08.25. Things started with a course from Udemy, which laid down my fundamental knowledge of frontend and backend technologies.</p>
-                        <p>Since i finished the course, i have been constantly improving my skills as a Full Stack Web Developer by creating web based projects on my own.</p>
+                        <p>I have been learning web developement since 2022.08.25. Things started with a course from Udemy, which laid down my fundamental knowledge of frontend and backend technologies, focusing on MERN stack.</p>
+                        <p>Since I finished the course, I have been constantly improving my skills as a Full Stack Web Developer, by creating web based projects on my own.</p>
                         <p>I am open to new opportunities, so feel free to contact me!</p>
                     </Col>
                     <Col lg={5}>
@@ -26,7 +26,7 @@ function AboutMeContent() {
                 </Row>
 
                 <Row className="technologies-row mt">
-                    <h2 className="technologies-title mbt">Technologies, i have used:</h2>
+                    <h2 className="technologies-title mbt">Technologies, I have used:</h2>
                     <div className="technologies">
                         {technologiesArray.map((element, index) => (
                           <span key={index}>{element}</span>  
