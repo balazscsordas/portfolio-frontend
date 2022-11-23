@@ -1,15 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import axios from "axios";
+import useAuth from "../../hooks/useAuth";
 
 function ToDoApp() {
 
     const [posts, setPosts] = useState([]);
+    const { auth } = useAuth();
 
-    function deletePost(id){
+    function deletePost(id, databaseId){
+        databaseId && deleteUserPost(databaseId);
         setPosts(posts.filter((post, index) => index !== id));
+    }
+
+    
+    useEffect(() => {
+        auth.id ? fetchUsersPosts() : setPosts([]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [] );
+
+    useEffect(() => {
+        setPosts([]);
+    }, [auth])
+
+
+    const deleteUserPost = async (id) => {
+        try {
+            const url = process.env.REACT_APP_BASEURL + "/api/toDoApplication/deletePost";
+            const params = { userId: auth.id, postId: id };
+            await axios.post(url, params);
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+    
+    const fetchUsersPosts = async () => {
+        try {
+            const url = process.env.REACT_APP_BASEURL + "/api/toDoApplication/fetchPosts";
+            const params = { userId: auth.id }
+            const response = await axios.post(url, params);
+            setPosts(response.data.foundPosts);
+        }
+        catch (err) {
+            console.log(err);
+        } 
     }
 
     return (
@@ -23,6 +61,7 @@ function ToDoApp() {
                         <Note
                             key={index}
                             id={index}
+                            databaseId={element._id}
                             title={element.title}
                             content={element.content}
                             deletePost={deletePost}

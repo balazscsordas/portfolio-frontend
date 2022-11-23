@@ -28,7 +28,7 @@ function CreateArea(props) {
   function addPost(event){
     event.preventDefault();
     if (text.title && text.content) {
-      auth.name && addPostToDatabase(text)
+      auth.firstName && addPostToDatabase(text)
       setErrorMessage("");
       props.setPosts(previousPosts => [...props.posts, text]);
       setText({

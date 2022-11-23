@@ -13,7 +13,7 @@ function Note(props) {
         <div className="note">
           <h1>{props.title}</h1>
           <p>{props.content}</p>
-          <button onClick={() => props.deletePost(props.id)} ><DeleteIcon /></button>
+          <button onClick={() => props.deletePost(props.id, props.databaseId)} ><DeleteIcon /></button>
         </div>
       </Zoom>
     </Col>

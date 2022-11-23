@@ -1,25 +1,5 @@
 @import './variables';
 
-.offcanvas {
-    background-color: var(--bgThemeColor1);
-    transition: $global-transition;
-    color: var(--textThemeColor1);
-    max-width: 80vw;
-}
-
-
-
-.dropdown-menu {
-    background-color: var(--bgThemeColor1);
-    a {
-        color: var(--textThemeColor1);
-        font-weight: 500;
-        font-size: 0.9rem;
-        padding: 8px 10px;
-        
-    }
-}
-
 .dark-mode {
     .btn-close {
         background-image: url('data:image/svg+xml;utf8,<svg stroke="rgba(117, 117, 117)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"><path d="M1.458 1.458l21.084 21.084m0-21.084L1.458 22.542" /></svg>');
@@ -30,10 +10,6 @@
     }
 }
 
-.offcanvas-body {
-    text-transform: uppercase;
-    font-weight: 500;
-}
 
 #navbar-section {
     text-transform: uppercase;
@@ -76,4 +52,27 @@
     }
 
     
+}
+
+
+.dropdown-menu {
+    background-color: var(--bgThemeColor1);
+    a {
+        color: var(--textThemeColor1);
+        font-weight: 500;
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+.offcanvas-body {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.offcanvas {
+    background-color: var(--bgThemeColor1);
+    transition: $global-transition;
+    color: var(--textThemeColor1);
+    max-width: 80vw;
 }
