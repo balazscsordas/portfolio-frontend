@@ -16,7 +16,8 @@ function LoginForm() {
   const from = location.state?.from?.pathname || "/authentication";
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState({
-    email: "",
+    firstName: "",
+    username: "",
     password: ""
   })
   const [loginMessage, setLoginMessage] = useState("");
@@ -35,18 +36,20 @@ function LoginForm() {
       const response = await axios.post(url, params);
       
       const id = response?.data?.id;
-      const name = response?.data?.name;
+      const firstName = response?.data?.firstName;
+      const username = response?.data?.username;
       const bestScore = response?.data?.bestScore;
 
       setLoginMessage(response.data.message);
       if(response.data.message === "Success") {
         setLoginData({
-          email: "",
+          username: "",
           password: ""
         })
         setAuth({
           id: id,
-          name: name,
+          firstName: firstName,
+          username: username,
           bestScore: bestScore
         })
         navigate(from, { replace: true });
@@ -75,9 +78,9 @@ function LoginForm() {
   return (
     <section id="login-section">
       <Container component="main" maxWidth="xs">
-        {auth.name
+        {auth.firstName
           ? <Box className="login-box">
-              <h2>Hello {auth.name}</h2>
+              <h2>Hello {auth.firstName}</h2>
               <Button className="log-out-button" variant="contained" onClick={signOut}>Log out</Button>
             </Box>
           : <Box className="login-box">
@@ -87,11 +90,11 @@ function LoginForm() {
                   margin="normal"
                   required
                   fullWidth
-                  id="email-login"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  value={loginData.email}
+                  id="username-login"
+                  label="Username"
+                  name="username"
+                  value={loginData.username}
+                  autoComplete="username"
                   onChange={handleLoginDataChange}
                   autoFocus
                 />

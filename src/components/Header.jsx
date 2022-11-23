@@ -57,7 +57,7 @@ function Header() {
                     >
                     <Offcanvas.Header closeButton onClick={() => setExpanded(false)}>
                         <Offcanvas.Title>
-                            {auth.name ? `Hello ${auth.name}` : "Hi"}
+                            {auth.firstName ? `Hello ${auth.firstName}` : "Hi"}
                         </Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
@@ -71,7 +71,7 @@ function Header() {
                             <NavDropdown.Item as={Link} to="/game" onClick={() => setExpanded(false)}>Simon Game</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link as={Link} to="/about-me" onClick={() => setExpanded(false)}>about me</Nav.Link>
-                        {auth?.name
+                        {auth?.firstName
                                 ? <Nav.Link>
                                     <Button onClick={signOut} variant="outlined" startIcon={<PersonIcon />}>
                                         Sign out

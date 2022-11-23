@@ -27,7 +27,7 @@ function GameResults () {
     return (
         <section className="mt">
             <div className="mbt">
-                <h3>Hello {auth?.name}</h3>
+                <h3>Hello {auth?.firstName}</h3>
                 <p>Your best score is: {auth.bestScore}</p>  
             </div>
             {ranklistUsers && 
@@ -37,7 +37,7 @@ function GameResults () {
                         {ranklistUsers.map((user, index) => (
                             <div className="ranklist-row" key={index}>
                                 <span className="index">{index + 1}</span>
-                                <span className="name">{user.name}</span>
+                                <span className="name">{user.firstName}</span>
                                 <span className="score">{user.bestScore}</span>
                             </div>
                         ))}

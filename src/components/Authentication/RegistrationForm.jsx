@@ -15,12 +15,12 @@ function RegistrationForm() {
   // Hooks
 
   const [registrationData, setRegistrationData] = useState({
-      name: "",
-      email: "",
+      firstName: "",
+      username: "",
       password: ""
   })
   const [registrationMessage, setRegistrationMessage] = useState("");
-  const [emailCheckMessage, setEmailCheckMessage] = useState("");
+  const [usernameCheckMessage, setUsernameCheckMessage] = useState("");
   const [passwordLengthError, setPasswordLengthError] = useState(<CloseIcon className="close-icon"/>);
   const [passwordNumberSymbolError, setPasswordNumberSymbolError] = useState(<CloseIcon className="close-icon"/>);
   const [passwordLowerUpperError, setPasswordLowerUpperError] = useState(<CloseIcon className="close-icon"/>);
@@ -29,14 +29,14 @@ function RegistrationForm() {
 
   const handleSubmit = (event) => {
       event.preventDefault();
-      if (emailValidationCheck(registrationData.email) === true && passwordValidationCheck(registrationData.password) === true) {
+      if (usernameValidationCheck(registrationData.username) === true && passwordValidationCheck(registrationData.password) === true) {
         sendRegistrationData(registrationData);
         setRegistrationData({
-          name: "",
-          email: "",
+          firstName: "",
+          username: "",
           password: ""
         });
-        setEmailCheckMessage("");
+        setUsernameCheckMessage("");
       }
   };
   
@@ -65,15 +65,16 @@ function RegistrationForm() {
       })
   }
 
-  // Email requirements check
+  // Username requirements check
 
-  function emailValidationCheck(email) {
-    if (validator.isEmail(email)) {
+  function usernameValidationCheck(username) {
+    if (username.length > 4) {
       setRegistrationMessage("");
-      setEmailCheckMessage("");
+      setUsernameCheckMessage("");
       return true;
-    } else {
-      setEmailCheckMessage('Enter a valid Email');
+    }
+    else {
+      setUsernameCheckMessage('Username has to be at least 5 characters long')
     }
   }
 
@@ -112,29 +113,29 @@ function RegistrationForm() {
                   margin="normal"
                   required
                   fullWidth
-                  id="name"
-                  label="Name"
-                  name="name"
-                  value={registrationData.name}
+                  id="firstName"
+                  label="First Name"
+                  name="firstName"
+                  value={registrationData.firstName}
                   onChange={changeData}
-                  autoComplete="name"
+                  autoComplete="first-name"
                   autoFocus
                   />
               <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email-registration"
-                label="Email Address"
-                name="email"
-                value={registrationData.email}
-                onChange={changeData}
-                autoComplete="email"
-                autoFocus
-              />
-              <Collapse in={emailCheckMessage === "Enter a valid Email"}>
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="username"
+                  label="Username"
+                  name="username"
+                  value={registrationData.username}
+                  onChange={changeData}
+                  autoComplete="username"
+                  autoFocus
+                  />
+              <Collapse in={usernameCheckMessage !== ""}>
                 <div className="error-div">
-                  <p className="error-text">{emailCheckMessage}</p>
+                  <p className="error-text">{usernameCheckMessage}</p>
                 </div>
               </Collapse>
               <TextField
