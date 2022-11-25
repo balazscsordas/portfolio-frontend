@@ -34,12 +34,10 @@ function LoginForm() {
       const url = process.env.REACT_APP_BASEURL + "/api/login";
       const params = {loginData: data};
       const response = await axios.post(url, params);
-      
       const id = response?.data?.id;
       const firstName = response?.data?.firstName;
       const username = response?.data?.username;
       const bestScore = response?.data?.bestScore;
-
       setLoginMessage(response.data.message);
       if(response.data.message === "Success") {
         setLoginData({

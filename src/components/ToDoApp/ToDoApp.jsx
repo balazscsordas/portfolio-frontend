@@ -11,9 +11,21 @@ function ToDoApp() {
     const [posts, setPosts] = useState([]);
     const { auth } = useAuth();
 
-    function deletePost(id, databaseId){
-        databaseId && deleteUserPost(databaseId);
+    function deletePost(id){
+        auth.firstName && deleteUserPost(id);
         setPosts(posts.filter((post, index) => index !== id));
+    }
+
+    const deleteUserPost = async (id) => {
+        try {
+            const url = process.env.REACT_APP_BASEURL + "/api/toDoApplication/deletePost";
+            const params = { userId: auth.id, index: id };
+            const response = await axios.post(url, params);
+            console.log(response.data.message);
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
 
     
@@ -26,17 +38,6 @@ function ToDoApp() {
         setPosts([]);
     }, [auth])
 
-
-    const deleteUserPost = async (id) => {
-        try {
-            const url = process.env.REACT_APP_BASEURL + "/api/toDoApplication/deletePost";
-            const params = { userId: auth.id, postId: id };
-            await axios.post(url, params);
-        }
-        catch (err) {
-            console.log(err);
-        }
-    }
     
     const fetchUsersPosts = async () => {
         try {
@@ -61,7 +62,6 @@ function ToDoApp() {
                         <Note
                             key={index}
                             id={index}
-                            databaseId={element._id}
                             title={element.title}
                             content={element.content}
                             deletePost={deletePost}

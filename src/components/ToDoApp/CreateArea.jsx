@@ -45,7 +45,7 @@ function CreateArea(props) {
       const url = process.env.REACT_APP_BASEURL + "/api/toDoApplication/addPost";
       const params = {postData: post, user: auth};
       const response = await axios.post(url, params);
-      console.log(response);
+      console.log(response.data.message);
     }
     catch (err) {
       console.log(err);

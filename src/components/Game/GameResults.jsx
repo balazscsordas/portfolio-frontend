@@ -11,7 +11,7 @@ function GameResults () {
         try {
             const url = process.env.REACT_APP_BASEURL + "/api/ranklist";
             const response = await axios.get(url);
-            response && setRanklistUsers(response.data.foundUsers);
+            setRanklistUsers(response.data.foundUsers);
         }
         catch(err) {
             console.log(err);

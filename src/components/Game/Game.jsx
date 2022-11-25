@@ -117,16 +117,16 @@ function Game() {
     }
   }
 
-  function sendNewRecord() {
-    const options = {
-      method: "PATCH",
-      
-      url: process.env.REACT_APP_BASEURL + "/api/setNewRecord",
-      params: {id: auth.id, record: currentScore}
+  const sendNewRecord = async () => {
+    try {
+      const url = process.env.REACT_APP_BASEURL + "/api/setNewRecord";
+      const params = {id: auth.id, record: currentScore};
+      const response = await axios.patch(url, params);
+      console.log(response.data.message);
     }
-    axios.request(options).catch(err => {
+    catch(err) {
       console.log(err);
-    })
+    }
   }
 
   return (
