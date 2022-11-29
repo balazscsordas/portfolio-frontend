@@ -9,8 +9,8 @@ function GamePage() {
         <>
             <BannerPages title="Game"/>
             <ProjectDescription
-                description = "This game is only available after authentication, it is connected to a Node.js backend server and a MongoDB database, so the application can record the best score for each player and it can display the 10 best scores also."
-                technologiesArray = {["React", "NodeJS", "MongoDB", "Mongoose", "Rest API", "JQuery", "Bootstrap", "Sass", "Material UI"]}
+                description = "This game is only available after authentication, it is connected to a Node.js server, and a MongoDB database, so the application can record the best score for each player and it can display the 10 best scores also."
+                technologiesArray = {["React", "Node.js", "MongoDB", "Mongoose", "Rest API", "JQuery", "Bootstrap", "Sass", "Material UI"]}
             />
             <Rules />
             <GameBlock />

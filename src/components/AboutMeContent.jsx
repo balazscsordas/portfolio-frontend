@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import AvatarSection from "./AvatarSection";
 
-const technologiesArray = ["React.js", "Node.js", "Git", "GitHub", "Rest API", "MongoDB", "Mongoose", "Javascript", "Gatsby", "JQuery", "Sass", "Bootstrap", "Material UI", "EJS", "HTML5", "CSS"]
+const technologiesArray = ["React", "Node.js", "Git", "GitHub", "Rest API", "MongoDB", "Mongoose", "Javascript", "Gatsby", "JQuery", "Sass", "Bootstrap", "Material UI", "EJS", "HTML5", "CSS"]
 
 function AboutMeContent() {
 
@@ -15,16 +15,15 @@ function AboutMeContent() {
                 <Row className="about-me-row">
                     <Col lg={7}>
                         <h3>My name is Balazs Csordas, and this is my story!</h3>
-                        <p>I am a {new Date().getFullYear() - 1996} years old guy from Hungary with mechanical engineering degree, who is passionate about coding and decided to transition from engineering to software developement.</p>
-                        <p>I have been learning web developement since 2022.08.25. Things started with a course from Udemy, which laid down my fundamental knowledge of frontend and backend technologies, focusing on MERN stack.</p>
-                        <p>Since I finished the course, I have been constantly improving my skills as a Full Stack Web Developer, by creating web based projects on my own.</p>
-                        <p>I am open to new opportunities, so feel free to contact me!</p>
+                        <p>I am a {new Date().getFullYear() - 1996} years old guy from Győr - Hungary, with mechanical engineering degree, who is passionate about coding and decided to transition to software developement.</p>
+                        <p>I have been learning web developement since 2022.08.25. Things started with a course from Udemy, which laid down my fundamental knowledge of frontend and backend technologies.</p>
+                        <p>Since I finished the course, I have been constantly improving my skills as a web developer, by creating web based projects on my own, using mainly React, Node.js, MongoDB, Bootstrap and Sass.</p>
+                        <p>I am open to new opportunities, interested in remote option as well, so feel free to contact me!</p>
                     </Col>
                     <Col lg={5}>
                         <AvatarSection />
                     </Col>
                 </Row>
-
                 <Row className="technologies-row mt">
                     <h2 className="technologies-title mbt">Technologies, I have used:</h2>
                     <div className="technologies">

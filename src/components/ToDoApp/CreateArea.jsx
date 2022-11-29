@@ -15,20 +15,22 @@ function CreateArea(props) {
   const [showContent, setVisibility] = useState(false);
   const { auth } = useAuth();
 
-  function textChange(event) {
+
+  const textChange = (event) => {
     const {name, value} = event.target;
     setText(prevText => {
       return {
         ...prevText,
-        [name]: value // Azért kell [], mert Spread-nél csak így ismeri fel, hogy változó
+        [name]: value // spread
       }
     })
   };
 
-  function addPost(event){
+
+  const addPost = (event) => {
     event.preventDefault();
     if (text.title && text.content) {
-      auth.firstName && addPostToDatabase(text)
+      auth.firstName && addPostToDatabase(text);
       setErrorMessage("");
       props.setPosts(previousPosts => [...props.posts, text]);
       setText({
@@ -39,6 +41,7 @@ function CreateArea(props) {
       setErrorMessage("Please fill out both fields.");
     }
   }
+
 
   const addPostToDatabase = async (post) => {
     try {
@@ -51,6 +54,7 @@ function CreateArea(props) {
       console.log(err);
     }
   }
+
 
   return (
     <div>

@@ -8,8 +8,8 @@ function AuthenticationPage() {
         <>
             <BannerPages title="Authentication system"/>
             <ProjectDescription
-                description = "Fully functional authenticational system with bcrypted passwords, Nodejs backend and MongoDB database connection."
-                technologiesArray = {["React", "Nodejs", "MongoDB", "Mongoose", "Rest API", "Bootstrap", "Material UI", "Sass"]}
+                description = "Fully functional authenticational system with bcrypted passwords, Node.js backend and MongoDB database connection."
+                technologiesArray = {["React", "Node.js", "MongoDB", "Mongoose", "Rest API", "Bootstrap", "Material UI", "Sass"]}
             />
             <AuthenticationBlock />
         </>

@@ -20,11 +20,11 @@ function Header() {
     const [checked, setChecked] = useState(false);
     const [expanded, setExpanded] = useState(false);
 
-    function signOut() {
+    const signOut = () => {
         setAuth("");
     }
 
-    function changeTheme(event) {
+    const changeTheme = (event) => {
         localStorage.getItem('theme') === "light-mode" 
             ? localStorage.setItem('theme', 'dark-mode')
             : localStorage.setItem('theme', 'light-mode');

@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
 function ProjectDescription(props) {
-
     
     return (
         <section id="project-description-section" className="mt">
@@ -12,7 +11,6 @@ function ProjectDescription(props) {
                     <h2 className="project-description-title mbt">Project Description</h2>
                     <p>{props.description}</p>
                 </Row>
-
                 <Row className="technologies-row">
                     <div className="technologies">
                         {props.technologiesArray.map((element, index) => (

@@ -11,7 +11,7 @@ function ToDoApp() {
     const [posts, setPosts] = useState([]);
     const { auth } = useAuth();
 
-    function deletePost(id){
+    const deletePost = (id) => {
         auth.firstName && deleteUserPost(id);
         setPosts(posts.filter((post, index) => index !== id));
     }
@@ -32,13 +32,9 @@ function ToDoApp() {
     useEffect(() => {
         auth.id ? fetchUsersPosts() : setPosts([]);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [] );
-
-    useEffect(() => {
-        setPosts([]);
-    }, [auth])
-
+    }, [auth]);
     
+
     const fetchUsersPosts = async () => {
         try {
             const url = process.env.REACT_APP_BASEURL + "/api/toDoApplication/fetchPosts";

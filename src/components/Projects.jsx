@@ -26,19 +26,19 @@ function Projects() {
         },
         {
             name: "Website for client",
-            description: "Simple static, fully responsive website built with the React-based framework: Gatsby, deployed on Netlify. Besides Gatsby, i used Sass and React Bootstrap for this project.",
+            description: "Simple, static, fully responsive website built with the React-based framework: Gatsby, deployed on Netlify. Besides Gatsby, i used Sass and React Bootstrap for this project.",
             icon: DesktopMacOutlinedIcon,
             link: "/cosmetics-website"
         },
         {
             name: "To Do App",
-            description: "To Do list frontend application built with React and Material UI.",
+            description: "To Do list application connected to a backend and a database. Built with React, Node.js, MongoDB, Mongoose and Material UI.",
             icon: FactCheckOutlinedIcon,
             link: "/to-do-app"
         },
         {
             name: "Authentication system",
-            description: "Fully functional registration and login system with checks, bcrypted passwords. Built with React, MongoDB, Mongoose, NodeJS, React Bootstrap and MaterialUI",
+            description: "Fully functional registration and login system with checks, bcrypted passwords. Built with React, MongoDB, Mongoose, Node.js, React Bootstrap and Material UI",
             icon: HowToRegIcon,
             link: "/authentication"
         },
@@ -49,7 +49,6 @@ function Projects() {
             link: "/game"
         }
     ];
-
 
     return (
         <section id="projects-section" className="mt">

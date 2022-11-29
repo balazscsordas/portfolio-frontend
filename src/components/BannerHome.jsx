@@ -8,7 +8,6 @@ function BannerHome() {
 
     return (
         <section id="banner-home-section">
-                
             <Container>
                 <Row>
                     <h1 className="main-h1">Welcome to my portfolio website</h1>

@@ -9,7 +9,7 @@ function CosmeticsWebsite() {
         <>
             <BannerPages title="Website for client"/>
             <ProjectDescription
-                description = "Simple static, fully responsive website built with the React-based framework: Gatsby, deployed on Netlify. Besides Gatsby, I used Sass and React Bootstrap for this project."
+                description = "Simple, static, fully responsive website built with the React-based framework: Gatsby, deployed on Netlify. Besides Gatsby, I used Sass and React Bootstrap for this project."
                 technologiesArray = {["Gatsby", "React", "Bootstrap", "Sass"]}
             />
             <Box className="box-button mt" textAlign='center'>
