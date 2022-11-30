@@ -21,6 +21,7 @@ function App() {
     sendFirstRequest();
   }, []);
 
+
   const sendFirstRequest = async () => {
       try {
           const url = process.env.REACT_APP_BASEURL + "/api/server-start-request";

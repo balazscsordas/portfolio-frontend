@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -8,24 +8,20 @@ import Zoom from '@mui/material/Zoom';
 import useAuth from '../../hooks/useAuth';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-
 function LoginForm() {
 
   const { auth, setAuth } = useAuth();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/authentication";
   const navigate = useNavigate();
-  const [loginData, setLoginData] = useState({
-    firstName: "",
-    username: "",
-    password: ""
-  })
+  const usernameRef = useRef();
+  const passwordRef = useRef();
   const [loginMessage, setLoginMessage] = useState("");
   
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    sendLoginData(loginData);
+    sendLoginData({username: usernameRef.current.value, password: passwordRef.current.value});
   };
 
 
@@ -40,10 +36,6 @@ function LoginForm() {
       const bestScore = response?.data?.bestScore;
       setLoginMessage(response.data.message);
       if(response.data.message === "Success") {
-        setLoginData({
-          username: "",
-          password: ""
-        })
         setAuth({
           id: id,
           firstName: firstName,
@@ -58,17 +50,8 @@ function LoginForm() {
     }
   }
   
-  function handleLoginDataChange(event) {
-    const {name, value} = event.target;
-      setLoginData(prevText => {
-          return {
-            ...prevText,
-            [name]: value
-          }
-        })
-  }
 
-  function signOut() {
+  const signOut = () => {
     setAuth("");
     setLoginMessage("");
   }
@@ -88,12 +71,11 @@ function LoginForm() {
                   margin="normal"
                   required
                   fullWidth
+                  inputRef={usernameRef}
                   id="username-login"
                   label="Username"
                   name="username"
-                  value={loginData.username}
                   autoComplete="username"
-                  onChange={handleLoginDataChange}
                   autoFocus
                 />
                 <TextField
@@ -104,8 +86,7 @@ function LoginForm() {
                   label="Password"
                   type="password"
                   id="password-login"
-                  value={loginData.password}
-                  onChange={handleLoginDataChange}
+                  inputRef={passwordRef}
                   autoComplete="current-password"
                 />
                 <Button className="submit-button" type="submit" variant="contained">Sign In</Button>

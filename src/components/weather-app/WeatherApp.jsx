@@ -30,18 +30,18 @@ function WeatherApp() {
     });
 
     
-    function changeCityValue(event) {
-        setCityName(event.target.value);
+    const changeCityValue = (e) => {
+        setCityName(e.target.value);
     }
 
 
-    function changeRadioInput(event) {
-        setRadioInput(event.target.value);
+    const changeRadioInput = (e) => {
+        setRadioInput(e.target.value);
     }
 
 
-    function handleSubmit(event) {
-        event.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
         getWeatherData();
         setCityName("");
     }
@@ -74,7 +74,7 @@ function WeatherApp() {
         }
     }
 
-function unitChanger (unit) {
+const unitChanger = (unit) => {
     switch (unit) {
         case "standard":
           return (setUnitSystem({
@@ -111,17 +111,33 @@ function unitChanger (unit) {
                             <h2 className="unit-choose-title">Choose unit</h2>
                             
                             <div className="unit-input-block">
-                                <input type="radio" name="unit-input" onChange={changeRadioInput} value="standard"></input>
+                                <input
+                                    type="radio"
+                                    name="unit-input"
+                                    onChange={changeRadioInput}
+                                    value="standard">
+                                </input>
                                 <label>Kelvin</label>
                             </div>
 
                             <div className="unit-input-block">
-                                <input type="radio" name="unit-input" value="metric" onChange={changeRadioInput} defaultChecked></input>
+                                <input
+                                    type="radio"
+                                    name="unit-input"
+                                    value="metric"
+                                    onChange={changeRadioInput}
+                                    defaultChecked>
+                                </input>
                                 <label>Celsius</label>
                             </div>
 
                             <div className="unit-input-block">
-                                <input type="radio" name="unit-input" value="imperial" onChange={changeRadioInput}></input>
+                                <input
+                                    type="radio"
+                                    name="unit-input"
+                                    value="imperial"
+                                    onChange={changeRadioInput}>
+                                </input>
                                 <label>Fahrenheit</label>
                             </div>
 

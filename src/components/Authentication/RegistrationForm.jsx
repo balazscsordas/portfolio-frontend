@@ -12,8 +12,6 @@ import CloseIcon from '@mui/icons-material/Close';
 
 function RegistrationForm() {
 
-  // Hooks
-
   const [registrationData, setRegistrationData] = useState({
       firstName: "",
       username: "",
@@ -25,7 +23,6 @@ function RegistrationForm() {
   const [passwordNumberSymbolError, setPasswordNumberSymbolError] = useState(<CloseIcon className="close-icon"/>);
   const [passwordLowerUpperError, setPasswordLowerUpperError] = useState(<CloseIcon className="close-icon"/>);
 
-  // Submit handling
 
   const handleSubmit = (event) => {
       event.preventDefault();
@@ -40,7 +37,6 @@ function RegistrationForm() {
       }
   };
   
-  // API connection with backend
 
   const sendRegistrationData = async (registrationData) => {
       try {
@@ -53,9 +49,8 @@ function RegistrationForm() {
       }
     }
 
-  // OnChange function
 
-  function changeData(event) {
+  const changeData = (event) => {
     const {name, value} = event.target;
     setRegistrationData(prevText => {
         return {
@@ -65,9 +60,8 @@ function RegistrationForm() {
       })
   }
 
-  // Username requirements check
 
-  function usernameValidationCheck(username) {
+  const usernameValidationCheck = (username) => {
     if (username.length > 4) {
       setRegistrationMessage("");
       setUsernameCheckMessage("");
@@ -78,16 +72,13 @@ function RegistrationForm() {
     }
   }
 
-  // Password requirements check
 
-  function passwordValidationCheck(password) {
+  const passwordValidationCheck = (password) => {
     if(validator.isStrongPassword(password, {minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1})) {
       return true;
       }
   }
 
-
-  // Password requirements error text check
 
   useEffect (() => {
     registrationData.password.length >= 8
