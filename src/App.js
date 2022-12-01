@@ -6,7 +6,7 @@ import AboutMePage from "./pages/AboutMePage";
 import CalculatorPage from "./pages/CalculatorPage";
 import WeatherAppPage from "./pages/WeatherAppPage";
 import CosmeticsWebsitePage from "./pages/CosmeticsWebsitePage";
-import ToDoAppPage from "./pages/ToDoAppPage";
+import NoteCollectorPage from "./pages/NoteCollectorPage";
 import AuthenticationPage from "./pages/AuthenticationPage";
 import GamePage from "./pages/GamePage";
 import RequireAuth from './components/RequireAuth';
@@ -45,7 +45,7 @@ function App() {
               <Route path="/calculator" element={<CalculatorPage />} />
               <Route path="/weather-app" element={<WeatherAppPage />} />
               <Route path="/cosmetics-website" element={<CosmeticsWebsitePage />} />
-              <Route path="/to-do-app" element={<ToDoAppPage />} />
+              <Route path="/note-collector" element={<NoteCollectorPage />} />
               <Route path="/authentication" element={<AuthenticationPage />} />
 
               <Route element={<RequireAuth />}>

@@ -13,12 +13,6 @@ function Projects() {
 
     const projects = [
         {
-            name: "Calculator",
-            description: "Basic, simple calculator, which can be used by clicking the buttons, and with keyboard as well. Used technologies: JQuery + HTML5 + CSS",
-            icon: CalculateOutlinedIcon,
-            link: "/calculator"
-        },
-        {
             name: "Weather App",
             description: "This application uses an API to get and display the data the user requires. The frontend is connected to a Nodejs backend, which stores the essential keys for the API call.",
             icon: WbSunnyOutlinedIcon,
@@ -31,10 +25,10 @@ function Projects() {
             link: "/cosmetics-website"
         },
         {
-            name: "To Do App",
-            description: "To Do list application connected to a backend and a database. Built with React, Node.js, MongoDB, Mongoose and Material UI.",
+            name: "Note Collector",
+            description: "Application where the authenticated user can add, store and delete notes, which are stored in a MongoDB database. Components built with React, Material UI.",
             icon: FactCheckOutlinedIcon,
-            link: "/to-do-app"
+            link: "/note-collector"
         },
         {
             name: "Authentication system",
@@ -47,6 +41,12 @@ function Projects() {
             description: "This game is only available after authentication. It is connected to a MongoDB database and there is an all time ranklist",
             icon: SportsEsportsIcon,
             link: "/game"
+        },
+        {
+            name: "Calculator",
+            description: "Basic, simple calculator, which can be used by clicking the buttons, and with keyboard as well. Used technologies: JQuery + HTML5 + CSS",
+            icon: CalculateOutlinedIcon,
+            link: "/calculator"
         }
     ];
 

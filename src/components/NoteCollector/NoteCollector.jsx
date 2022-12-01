@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 
-function ToDoApp() {
+function NoteCollector() {
 
     const [posts, setPosts] = useState([]);
     const { auth } = useAuth();
@@ -69,4 +69,4 @@ function ToDoApp() {
     )
 };
 
-export default ToDoApp;
+export default NoteCollector;
