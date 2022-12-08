@@ -121,7 +121,7 @@ export default function Client(props) {
                     severity="success"
                     variant="filled"
                     sx={{ width: '100%' }}>
-                    Succesfully removed from your client list!
+                    Succesfully removed {props.name} from your client list!
                 </MuiAlert>
             </Snackbar>
 

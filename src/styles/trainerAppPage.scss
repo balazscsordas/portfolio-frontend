@@ -60,11 +60,11 @@
         color: var(--textThemeColor1);
     }
     
-    .css-1x51dt5-MuiInputBase-input-MuiInput-input.Mui-disabled, .css-66dh3a-MuiInputBase-input-MuiInput-input.Mui-disabled  {
+    .Mui-disabled {
         -webkit-text-fill-color: var(--textThemeColor1);
     }
 
-    .css-g9cew8-MuiInputBase-root-MuiInput-root:before {
+   :before {
         border-bottom: none;
     }
 
