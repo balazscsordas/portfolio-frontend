@@ -8,6 +8,7 @@ import WeatherAppPage from "./pages/WeatherAppPage";
 import CosmeticsWebsitePage from "./pages/CosmeticsWebsitePage";
 import NoteCollectorPage from "./pages/NoteCollectorPage";
 import AuthenticationPage from "./pages/AuthenticationPage";
+import TrainerAppPage from "./pages/TrainerAppPage";
 import GamePage from "./pages/GamePage";
 import RequireAuth from './components/RequireAuth';
 import { AuthProvider } from './context/AuthProvider';
@@ -47,6 +48,7 @@ function App() {
               <Route path="/cosmetics-website" element={<CosmeticsWebsitePage />} />
               <Route path="/note-collector" element={<NoteCollectorPage />} />
               <Route path="/authentication" element={<AuthenticationPage />} />
+              <Route path="/trainer-app" element={<TrainerAppPage/>}/>
 
               <Route element={<RequireAuth />}>
                 <Route path="/game" element={<GamePage />} />

@@ -60,7 +60,8 @@ function CreateArea(props) {
     <div>
       <form className="create-note">
         <input 
-          onClick={() => setVisibility(true)} onChange={textChange}
+          onClick={() => setVisibility(true)} 
+          onChange={textChange}
           value={text.title}
           name="title"
           placeholder="Title"

@@ -63,9 +63,10 @@ function Header() {
                     <Offcanvas.Body>
                         <Nav className="justify-content-end flex-grow-1 pe-3">
                         <NavDropdown title="Projects">
+                            <NavDropdown.Item as={Link} to="/trainer-app" onClick={() => setExpanded(false)}>Trainer App</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/note-collector" onClick={() => setExpanded(false)}>Note Collector</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/weather-app" onClick={() => setExpanded(false)}>Weather App</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/cosmetics-website" onClick={() => setExpanded(false)}>Website for client</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/note-collector" onClick={() => setExpanded(false)}>Note Collector</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/authentication" onClick={() => setExpanded(false)}>authentication system</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/game" onClick={() => setExpanded(false)}>Simon Game</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/calculator" onClick={() => setExpanded(false)}>Calculator</NavDropdown.Item>

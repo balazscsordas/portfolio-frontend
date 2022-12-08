@@ -1,0 +1,133 @@
+@import './variables';
+
+#client-section {
+    margin-top: 20px;
+    
+    .head-block {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 30px;
+        border-bottom: 1px solid grey;
+
+        .account-icon {
+            color: var(--textThemeColor3);
+            margin-right: 15px;
+            font-size: 2rem;
+        }
+
+        .hamburger-icon {
+            position: absolute;
+            right: 30px;
+            color: var(--textThemeColor3)
+        }
+    }
+
+    .container {
+        background: var(--bgThemeColor4);
+        box-shadow: $box-shadow;
+        margin: 20px auto;
+        max-width: 1000px;
+        min-height: 68px;
+        padding: 0;
+        
+    }
+
+    .name-title {
+        display: inline-block;
+        margin-bottom: 0;
+        text-transform: capitalize;
+    }
+
+    .collapse-section {
+        margin-top: 30px;
+        padding: 0 30px 30px;
+
+        .information-block {
+            margin-top: 30px;
+        }
+    }
+
+    .buttons-block {
+        text-align: center;
+
+        button {
+            margin: 20px 20px 0;
+        }
+    }
+
+    .MuiInputBase-root {
+        color: var(--textThemeColor1);
+    }
+    
+    .css-1x51dt5-MuiInputBase-input-MuiInput-input.Mui-disabled, .css-66dh3a-MuiInputBase-input-MuiInput-input.Mui-disabled  {
+        -webkit-text-fill-color: var(--textThemeColor1);
+    }
+
+    .css-g9cew8-MuiInputBase-root-MuiInput-root:before {
+        border-bottom: none;
+    }
+
+    .title-block {
+        h3 {
+            display: inline-block;
+        }
+
+        .edit-icons {
+            margin: 0 0 10px 20px;
+            color: var(--textThemeColor3);
+        }
+    }
+
+    .MuiDialogActions-root {
+        justify-content: center;
+    }
+
+    
+}
+
+
+
+#add-client-section {
+    text-align: center;
+    margin-bottom: 30px;
+
+    .container {
+        max-width: 800px;
+
+        .form-header {
+            display: flex;
+            flex-wrap: wrap;
+
+            .age-input {
+                max-width: 80px;
+            }
+            
+            .exit-icon {
+                color: var(--textThemeColor1);
+                margin-left: auto;
+            }
+        }
+    }
+
+    .collapse-block {
+        position: relative;
+    }
+
+    .MuiFormControl-root {
+        background-color: var(--bgThemeColor4);
+        box-shadow: $box-shadow;
+    }
+
+    .MuiFormLabel-root {
+        color: var(--textThemeColor1);
+    }
+
+    .MuiInputBase-root {
+        color: var(--textThemeColor5);
+    }
+
+    .submit-button {
+        margin-top: 30px;
+    }
+}

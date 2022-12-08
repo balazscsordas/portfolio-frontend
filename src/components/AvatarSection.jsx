@@ -13,7 +13,7 @@ function AvatarSection () {
                 />
                 <div className="avatar-description">
                     <h2>Balazs Csordas</h2>
-                    <p>Full Stack Web Developer</p>
+                    <p>Web Developer</p>
                     <SocialLinks />
                 </div>
             </div>

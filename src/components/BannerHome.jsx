@@ -19,7 +19,7 @@ function BannerHome() {
                         />
                         <div className="avatar-description">
                             <h2>Balazs Csordas</h2>
-                            <p>Full Stack Web Developer</p>
+                            <p>Web Developer</p>
                             <Button className="portfolio-button-1" href="#projects-section" variant="contained">my projects</Button>
                         </div>
                     </div>

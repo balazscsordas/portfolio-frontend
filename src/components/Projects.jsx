@@ -8,13 +8,26 @@ import DesktopMacOutlinedIcon from '@mui/icons-material/DesktopMacOutlined';
 import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 
 function Projects() {
 
     const projects = [
         {
+            name: "Trainer App",
+            description: "An application where trainers can store all of the essential informations about their clients, for example their previous injuries, allergies, their starter weight. Node.js backend and MongoDB database, with reference method relationship.",
+            icon: FitnessCenterIcon,
+            link: "/trainer-app"
+        },
+        {
+            name: "Note Collector",
+            description: "Application where the authenticated user can add, store and delete notes, which are stored in a MongoDB database. Components built with React, Material UI.",
+            icon: FactCheckOutlinedIcon,
+            link: "/note-collector"
+        },
+        {
             name: "Weather App",
-            description: "This application uses an API to get and display the data the user requires. The frontend is connected to a Nodejs backend, which stores the essential keys for the API call.",
+            description: "This application uses an API to get and display the data the user requires. The frontend is connected to a Node.js backend, which stores the essential keys for the API call.",
             icon: WbSunnyOutlinedIcon,
             link: "/weather-app"
         },
@@ -23,12 +36,6 @@ function Projects() {
             description: "Simple, static, fully responsive website built with the React-based framework: Gatsby, deployed on Netlify. Besides Gatsby, i used Sass and React Bootstrap for this project.",
             icon: DesktopMacOutlinedIcon,
             link: "/cosmetics-website"
-        },
-        {
-            name: "Note Collector",
-            description: "Application where the authenticated user can add, store and delete notes, which are stored in a MongoDB database. Components built with React, Material UI.",
-            icon: FactCheckOutlinedIcon,
-            link: "/note-collector"
         },
         {
             name: "Authentication system",
