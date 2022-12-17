@@ -95,17 +95,21 @@
     .container {
         max-width: 800px;
 
+        .form {
+            margin: auto 5px auto 5px;
+        }
+
         .form-header {
             display: flex;
-            flex-wrap: wrap;
 
             .age-input {
-                max-width: 80px;
+                max-width: 70px;
             }
             
             .exit-icon {
                 color: var(--textThemeColor1);
                 margin-left: auto;
+                padding-left: 15px;
             }
         }
     }
