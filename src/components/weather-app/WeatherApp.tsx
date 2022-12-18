@@ -159,7 +159,7 @@ const unitChanger = (unit: string) => {
                                 required
                                 onChange={changeCityValue}
                             />
-                            <Button type="submit" variant="contained" name="weatherAppButton">click me</Button>
+                            <Button className="global-button" type="submit" variant="contained" name="weatherAppButton">click me</Button>
                         </div>
                     </form>
                     <Zoom in={errorMessage !== ""}>

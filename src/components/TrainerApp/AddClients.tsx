@@ -139,7 +139,7 @@ const AddClients = ({ clients, setClients }: Props) => {
 
             <Container>
                 <Collapse in={!collapseState}>
-                    <Button onClick={() => {setCollapseState(!collapseState)}} variant="contained">add new client</Button>
+                    <Button className="global-button" onClick={() => {setCollapseState(!collapseState)}} variant="contained">add new client</Button>
                 </Collapse>
                 <Collapse in={collapseState} className="collapse-block">
                     <Box className="form" component="form" onSubmit={handleSubmit}>
@@ -198,7 +198,7 @@ const AddClients = ({ clients, setClients }: Props) => {
                                 label="Injuries"
                                 name="injuries"
                             />
-                            <Button className="submit-button" type="submit" variant="contained" name="weatherAppButton">add new client</Button>
+                            <Button className="submit-button global-button" type="submit" variant="contained" name="weatherAppButton">add new client</Button>
                         </div>
                     </Box>
                 </Collapse>

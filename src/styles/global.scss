@@ -44,6 +44,19 @@ h2, h3 {
     color: white;
 }
 
+.global-button {
+    background-color: var(--bgThemeColorButtons7)!important;
+}
+
+.global-button:disabled {
+    background-color: var(--bgThemeColorButtonsDisabled)!important;
+    color: var(--textThemeColorButtonsDisabled)!important;
+}
+
+.global-button:hover {
+    background-color: var(--bgThemeColorButtonsHover)!important;
+}
+
 .mbt { // margin-bottom on titles
     margin-bottom: 40px!important;
     text-align: center;

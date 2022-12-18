@@ -9,6 +9,7 @@ import Collapse from '@mui/material/Collapse';
 import validator from 'validator';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function RegistrationForm() {
 
@@ -28,6 +29,7 @@ function RegistrationForm() {
   const [passwordLengthError, setPasswordLengthError] = useState(<CloseIcon className="close-icon"/>);
   const [passwordNumberSymbolError, setPasswordNumberSymbolError] = useState(<CloseIcon className="close-icon"/>);
   const [passwordLowerUpperError, setPasswordLowerUpperError] = useState(<CloseIcon className="close-icon"/>);
+  const [loading, setLoading] = useState(false);
 
 
   const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,9 +48,11 @@ function RegistrationForm() {
 
   const sendRegistrationData = async (registrationData: RegistrationData) => {
       try {
+        setLoading(true);
         const url = process.env.REACT_APP_BASEURL + "/api/registration";
         const params = {registrationData: registrationData};
         const response = await axios.post(url, params);
+        setLoading(false);
         setRegistrationMessage(response.data.message);
       } catch(err) {
           err instanceof Error && console.log(err.message);
@@ -157,7 +161,19 @@ function RegistrationForm() {
                   <li>{passwordLengthError} be at least 8 characters long</li>
                 </ul>
               </Collapse>
-              <Button className="submit-button" type="submit" variant="contained">Registration</Button>
+              <Box className="submit-button-div">
+                  <Button
+                    variant="contained"
+                    type='submit'
+                    className="submit-button global-button"
+                    disabled={loading}
+                  >
+                    Registration
+                  </Button>
+                  {loading && (
+                    <CircularProgress size={24} className="loading-icon" />
+                  )}
+                </Box>
             </Box>
           </Box>
           <Zoom in={registrationMessage !== ""}>

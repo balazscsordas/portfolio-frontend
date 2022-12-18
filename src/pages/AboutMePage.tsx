@@ -1,5 +1,5 @@
 import BannerPages from "../components/BannerPages";
-import AboutMeContent from "../components/AboutMeContent";
+import AboutMeContent from "../components/AboutMeComponents/AboutMeContent";
 
 const AboutMe = () => {
     return (

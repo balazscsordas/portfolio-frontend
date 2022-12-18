@@ -13,7 +13,7 @@ const CosmeticsWebsite = () => {
             />
             <Box className="box-button mt" textAlign='center'>
                 <Button 
-                    className="portfolio-button-1 center" 
+                    className="portfolio-button-1 center global-button" 
                     href="https://dorinkozmetika.hu/" 
                     variant="contained">
                     Click here to view the website

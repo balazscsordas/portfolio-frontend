@@ -31,6 +31,18 @@ $themes: (
     darkTheme: #8490ff80,
     lightTheme: #8490ff,
   ),
+  bgThemeColorButtons7: (
+    darkTheme: #135ca4,
+    lightTheme: #1976d2,
+  ),
+  bgThemeColorButtonsDisabled: (
+    darkTheme: #0c3b6a,
+    lightTheme: #1159a0,
+  ),
+  bgThemeColorButtonsHover: (
+    darkTheme: #1976d2,
+    lightTheme: #135ca4,
+  ),
   textThemeColor1: (
     darkTheme: #757575,
     lightTheme: #777777,
@@ -53,6 +65,10 @@ $themes: (
   ),
   textThemeColor6: (
     darkTheme: #757575,
+    lightTheme: white,
+  ),
+  textThemeColorButtonsDisabled: (
+    darkTheme: rgb(188, 188, 188),
     lightTheme: white,
   ),
 );

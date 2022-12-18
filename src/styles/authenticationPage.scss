@@ -7,6 +7,11 @@
         align-items: center;
     }
 
+    .loading-progress-div {
+        text-align: center;
+        margin-top: 16px;
+    }
+
     .MuiFormControl-root {
         background-color: var(--bgThemeColor4);
         box-shadow: $box-shadow;
@@ -24,9 +29,18 @@
         margin-top: 8px;
     }
 
+    .submit-button-div {
+        margin: 30px auto 20px;
+        text-align: center;
+    }
+
+    .loading-icon {
+        color: rgb(0, 217, 0);
+        margin-top: 15px;
+    }
+
     .submit-button {
         width: 100%;
-        margin: 30px auto 20px;
     }
 
     .log-out-button {

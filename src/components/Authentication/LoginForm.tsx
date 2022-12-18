@@ -2,6 +2,7 @@ import { useState, useContext, useRef } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 import Container from '@mui/material/Container';
 import axios from "axios";
 import Zoom from '@mui/material/Zoom';
@@ -17,6 +18,7 @@ function LoginForm() {
   const usernameRef = useRef() as React.MutableRefObject<HTMLInputElement>;
   const passwordRef = useRef() as React.MutableRefObject<HTMLInputElement>;
   const [loginMessage, setLoginMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   
   
   const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
@@ -31,6 +33,7 @@ function LoginForm() {
 
   const sendLoginData = async (data: DataType) => {
     try {
+      setLoading(true);
       const url = process.env.REACT_APP_BASEURL + "/api/login";
       const params = {loginData: data};
       const response = await axios.post(url, params);
@@ -48,6 +51,7 @@ function LoginForm() {
         })
         navigate(from, { replace: true });
       }
+      setLoading(false);
     } 
     catch(err) {
       err instanceof Error && console.log(err.message);
@@ -58,6 +62,7 @@ function LoginForm() {
     setAuth({});
     setLoginMessage("");
   }
+
 
   return (
     <section id="login-section">
@@ -92,7 +97,19 @@ function LoginForm() {
                   inputRef={passwordRef}
                   autoComplete="current-password"
                 />
-                <Button className="submit-button" type="submit" variant="contained">Sign In</Button>
+                <Box className="submit-button-div">
+                  <Button
+                    variant="contained"
+                    type='submit'
+                    className="submit-button global-button"
+                    disabled={loading}
+                  >
+                    Sign In
+                  </Button>
+                  {loading && (
+                    <CircularProgress size={24} className="loading-icon" />
+                  )}
+                </Box>
               </Box>
               <Zoom in={loginMessage !== ""}>
                 <div className="error-div">
