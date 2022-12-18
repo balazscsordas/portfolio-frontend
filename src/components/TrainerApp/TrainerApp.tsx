@@ -45,14 +45,14 @@ const TrainerApp = () => {
             setClients(response.data.foundClients);
         }
         catch(err) {
-            console.log(err);
+            err instanceof Error && console.log(err.message);
         }
     }
 
     useEffect(() => {
         auth.id ? fetchClientsFromDatabase(auth.id) : setClients([]);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [auth.id])
+    }, [])
 
     // Delete Client
 

@@ -98,7 +98,7 @@ const AddClients = ({ clients, setClients }: Props) => {
             setClients(_previousClients => [...clients, newClientWithId]);
         }
         catch (err) {
-            console.log(err);
+            err instanceof Error && console.log(err.message);
         }
     }
 

@@ -25,12 +25,12 @@ const App: React.FC = () => {
 
   const sendFirstRequest = async () => {
       try {
-          const url = process.env.REACT_APP_BASEURL + "/api/server-start-request";
-          const response = await axios.get(url);
-          console.log(response.data.message);
+        const url = process.env.REACT_APP_BASEURL + "/api/server-start-request";
+        const response = await axios.get(url);
+        console.log(response.data.message);
       }
       catch (err) {
-          console.log(err);
+        err instanceof Error && console.log(err.message);
       }
   }
 

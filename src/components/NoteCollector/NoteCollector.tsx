@@ -29,7 +29,7 @@ const NoteCollector = () => {
             console.log(response.data.message);
         }
         catch (err) {
-            console.log(err);
+            err instanceof Error && console.log(err.message);
         }
     }
 
@@ -47,7 +47,7 @@ const NoteCollector = () => {
             setPosts(response.data.foundPosts);
         }
         catch (err) {
-            console.log(err);
+            err instanceof Error && console.log(err.message);
         } 
     }
 

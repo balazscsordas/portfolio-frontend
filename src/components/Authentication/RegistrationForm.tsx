@@ -51,7 +51,7 @@ function RegistrationForm() {
         const response = await axios.post(url, params);
         setRegistrationMessage(response.data.message);
       } catch(err) {
-        console.log(err);
+          err instanceof Error && console.log(err.message);
       }
     }
 

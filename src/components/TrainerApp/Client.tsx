@@ -74,7 +74,7 @@ const Client = (props: Props) => {
             console.log(response.data.message);
         }
         catch(err) {
-            console.log(err);
+            err instanceof Error && console.log(err.message);
         }
     }
 

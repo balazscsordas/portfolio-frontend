@@ -19,7 +19,7 @@ const GameResults = () => {
             setRanklistUsers(response.data.foundUsers);
         }
         catch(err) {
-            console.log(err);
+            err instanceof Error && console.log(err.message);
         }
     }
 
