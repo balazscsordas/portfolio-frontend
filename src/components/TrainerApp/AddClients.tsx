@@ -12,6 +12,7 @@ import axios from "axios";
 import AuthContext from "../../context/AuthProvider";
 
 type Clients = {
+    clientDatabaseId?: string;
     name: string;
     age: string;
     basicInformation: string;
@@ -19,8 +20,17 @@ type Clients = {
     injuries: string;
   }
 
+type ClientWithoutId = {
+    name: string;
+    age: string;
+    basicInformation: string;
+    allergies: string;
+    injuries: string;
+}
+
 type Props = {
     clients: {
+        clientDatabaseId?: string;
         name: string;
         age: string;
         basicInformation: string;
@@ -31,6 +41,8 @@ type Props = {
   }
 
 const AddClients = ({ clients, setClients }: Props) => {
+
+    // States + Refs
 
     const { auth } = useContext(AuthContext);
     const [collapseState, setCollapseState] = useState(false);
@@ -46,15 +58,16 @@ const AddClients = ({ clients, setClients }: Props) => {
 
     const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const newClient: Clients = {
+        const newClient: ClientWithoutId = {
             name: nameRef.current.value,
             age: inputData.age,
             basicInformation: basicInformationRef.current.value,
             allergies: allergiesRef.current.value,
             injuries: injuriesRef.current.value
         }
-        auth.id && addNewClientToDatabase(newClient);
-        setClients(_previousClients => [newClient, ...clients]);
+        auth.id 
+            ? addNewClientToDatabase(newClient)
+            : setClients(_previousClients => [...clients, newClient]);
         nameRef.current.value = "";
         setInputData({
             name: "",
@@ -67,12 +80,22 @@ const AddClients = ({ clients, setClients }: Props) => {
         setShowAlert(true);
     }
 
-    const addNewClientToDatabase = async (data: Clients) => {
+    const addNewClientToDatabase = async (data: ClientWithoutId) => {
         try {
             const url = process.env.REACT_APP_BASEURL + "/api/trainer-app/add-new-client";
             const params = {clientData: data, trainerId: auth.id};
             const response = await axios.post(url, params);
+            const clientDatabaseId: string = response.data.clientDatabaseId;
             console.log(response.data.message);
+            const newClientWithId: Clients = {
+                clientDatabaseId: clientDatabaseId,
+                name: data.name,
+                age: data.age,
+                basicInformation: data.basicInformation,
+                allergies: data.allergies,
+                injuries: data.injuries
+            }
+            setClients(_previousClients => [...clients, newClientWithId]);
         }
         catch (err) {
             console.log(err);

@@ -4,9 +4,10 @@ import AddClients from "./AddClients";
 import Client from "./Client";
 import AuthContext from "../../context/AuthProvider";
 
-function TrainerApp() {
+const TrainerApp = () => {
 
     type Clients = {
+        clientDatabaseId?: string;
         name: string;
         age: string;
         basicInformation: string;
@@ -17,13 +18,10 @@ function TrainerApp() {
     const { auth } = useContext(AuthContext);
     const [clients, setClients] = useState<Clients[]>([]);
 
-    const deleteClient = (id: number) => {
-        setClients(clients.filter((_client, index) => index !== id));
-    }
 
-    const editClient = (id: number, basicInformationData: string, allergiesData: string, injuriesData: string) => {
+    const editClient = (elementIndex: number, basicInformationData: string, allergiesData: string, injuriesData: string) => {
         const editedClients = clients.map((client, index) => {
-            if (index === id) {
+            if (index === elementIndex) {
                 return {
                     ...client,
                     basicInformation: basicInformationData,
@@ -37,17 +35,42 @@ function TrainerApp() {
         setClients(editedClients);
     }
 
-    const fetchClientsFromDatabase = async (data: string) => {
-        const url = process.env.REACT_APP_BASEURL + "/api/trainer-app/fetch-clients";
-        const params = {userId: data};
-        const response = await axios.post(url, params);
-        setClients(response.data.foundClients);
+    // Fetch Clients
+
+    const fetchClientsFromDatabase = async (trainerId: string) => {
+        try {
+            const url = process.env.REACT_APP_BASEURL + "/api/trainer-app/fetch-clients";
+            const params = {trainerId: trainerId};
+            const response = await axios.post(url, params);
+            setClients(response.data.foundClients);
+        }
+        catch(err) {
+            console.log(err);
+        }
     }
 
     useEffect(() => {
         auth.id ? fetchClientsFromDatabase(auth.id) : setClients([]);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [auth])
+    }, [auth.id])
+
+    // Delete Client
+
+    const deleteClientLocally = (elementIndex: number) => {
+        setClients(clients.filter((_client, index) => index !== elementIndex));
+    }
+
+    const deleteClientFromDatabase = async (clientDatabaseId: string | undefined) => {
+        try {
+            const url = process.env.REACT_APP_BASEURL + "/api/trainer-app/delete-client";
+            const params = {clientDatabaseId: clientDatabaseId};
+            const response = await axios.post(url, params);
+            console.log(response.data.message);
+        }
+        catch(err) {
+            err instanceof Error && console.log(err.message);
+        }
+    }
 
     return (
         <>
@@ -57,13 +80,15 @@ function TrainerApp() {
                 {clients.map((client, index) => (
                     <Client 
                         key={index}
-                        id={index}
+                        elementIndex={index}
+                        clientDatabaseId={client.clientDatabaseId}
                         name={client.name}
                         age={client.age}
                         basicInformation={client.basicInformation}
                         allergies={client.allergies}
                         injuries={client.injuries}
-                        deleteClient={deleteClient}
+                        deleteClientLocally={deleteClientLocally}
+                        deleteClientFromDatabase={deleteClientFromDatabase}
                         editClient={editClient}
                     />
                 ))}

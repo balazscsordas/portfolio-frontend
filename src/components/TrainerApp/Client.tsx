@@ -18,14 +18,22 @@ import axios from "axios";
 import AuthContext from "../../context/AuthProvider";
 
 type Props = {
-    id: number;
+    elementIndex: number;
+    clientDatabaseId? : string;
     name: string;
     age: string;
     basicInformation: string;
     allergies: string;
     injuries: string;
-    deleteClient: (n1: number) => void;
+    deleteClientLocally: (id: number) => void;
+    deleteClientFromDatabase: (clientDatabaseId: string | undefined) => void;
     editClient: (n1: number, s1: string, s2: string, s3: string) => void;
+}
+
+type CurrentData = {
+    basicInformation: string;
+    allergies: string;
+    injuries: string;
 }
 
 const Client = (props: Props) => {
@@ -42,19 +50,44 @@ const Client = (props: Props) => {
     const injuriesRef = useRef() as React.MutableRefObject<HTMLInputElement>;
     const allergiesRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
+    // Edit and save the client data
+
     const saveClient = () => {
-        const currentData = {
+        const currentData: CurrentData = {
             basicInformation: basicInformationRef.current.value,
             allergies: allergiesRef.current.value,
             injuries: injuriesRef.current.value
         };
-        sendNewClientDataToServer(auth.id, currentData);
+        auth.id && sendNewClientDataToServer(props.clientDatabaseId, currentData);
         setEditModeStateBasicInformation(true);
         setEditModeStateAllergies(true);
         setEditModeStateInjuries(true);
-        props.editClient(props.id, basicInformationRef.current.value, allergiesRef.current.value, injuriesRef.current.value);
+        props.editClient(props.elementIndex, basicInformationRef.current.value, allergiesRef.current.value, injuriesRef.current.value);
         setShowSavingAlert(true);
     }
+
+    const sendNewClientDataToServer = async (clientDatabaseId: string | undefined, editedClientData: CurrentData) => {
+        try {
+            const url = process.env.REACT_APP_BASEURL + "/api/trainer-app/save-modified-client-data";
+            const params = {clientDatabaseId: clientDatabaseId, editedClientData: editedClientData};
+            const response = await axios.post(url, params);
+            console.log(response.data.message);
+        }
+        catch(err) {
+            console.log(err);
+        }
+    }
+
+    // Delete client locally and from database
+
+    const deleteClient = () => {
+        setShowDeleteAlert(true);
+        auth.id && props.deleteClientFromDatabase(props.clientDatabaseId);
+        props.deleteClientLocally(props.elementIndex);
+        setDeleteDialogOpen(false);
+    }
+
+    // Dialogs + Alerts states
 
     const handleCloseSavingAlert = () => {
         setShowSavingAlert(false);
@@ -72,19 +105,7 @@ const Client = (props: Props) => {
         setDeleteDialogOpen(true);
     }
 
-    const deleteClient = () => {
-        setShowDeleteAlert(true);
-        props.deleteClient(props.id);
-        setDeleteDialogOpen(false);
-    }
-
-    // Modify Client Data API
-    const sendNewClientDataToServer = async (userId: string | undefined, data: {}) => {
-        const url = process.env.REACT_APP_BASEURL + "/api/trainer-app/save-modified-client-data";
-        const params = {userId: userId, data: data};
-        const response = await axios.post(url, params);
-        console.log(response.data.message);
-    }
+    // EditMode focus
 
     useEffect(() => {
         if (!editModeStateBasicInformation) {
@@ -212,15 +233,15 @@ const Client = (props: Props) => {
                                 aria-labelledby="alert-dialog-title"
                                 aria-describedby="alert-dialog-description"
                                 >
-                            <DialogContent>
-                                <DialogContentText id="alert-dialog-description">
-                                Do you want to remove {props.name} from your client list?
-                                </DialogContentText>
-                            </DialogContent>
-                            <DialogActions>
-                                <Button onClick={handleCloseDialog}>No</Button>
-                                <Button onClick={deleteClient} autoFocus>Yes</Button>
-                            </DialogActions>
+                                <DialogContent>
+                                    <DialogContentText id="alert-dialog-description">
+                                    Do you want to remove {props.name} from your client list?
+                                    </DialogContentText>
+                                </DialogContent>
+                                <DialogActions>
+                                    <Button onClick={handleCloseDialog}>No</Button>
+                                    <Button onClick={deleteClient} autoFocus>Yes</Button>
+                                </DialogActions>
                             </Dialog>
                         </div>
                     </div>
