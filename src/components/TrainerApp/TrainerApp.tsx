@@ -7,7 +7,7 @@ import AuthContext from "../../context/AuthProvider";
 const TrainerApp = () => {
 
     type Clients = {
-        clientDatabaseId?: string;
+        _id?: string;
         name: string;
         age: string;
         basicInformation: string;
@@ -60,10 +60,10 @@ const TrainerApp = () => {
         setClients(clients.filter((_client, index) => index !== elementIndex));
     }
 
-    const deleteClientFromDatabase = async (clientDatabaseId: string | undefined) => {
+    const deleteClientFromDatabase = async (_id: string | undefined) => {
         try {
             const url = process.env.REACT_APP_BASEURL + "/api/trainer-app/delete-client";
-            const params = {clientDatabaseId: clientDatabaseId};
+            const params = {_id: _id};
             const response = await axios.post(url, params);
             console.log(response.data.message);
         }
@@ -81,7 +81,7 @@ const TrainerApp = () => {
                     <Client 
                         key={index}
                         elementIndex={index}
-                        clientDatabaseId={client.clientDatabaseId}
+                        _id={client._id}
                         name={client.name}
                         age={client.age}
                         basicInformation={client.basicInformation}

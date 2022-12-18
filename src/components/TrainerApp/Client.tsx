@@ -19,14 +19,14 @@ import AuthContext from "../../context/AuthProvider";
 
 type Props = {
     elementIndex: number;
-    clientDatabaseId? : string;
+    _id? : string;
     name: string;
     age: string;
     basicInformation: string;
     allergies: string;
     injuries: string;
     deleteClientLocally: (id: number) => void;
-    deleteClientFromDatabase: (clientDatabaseId: string | undefined) => void;
+    deleteClientFromDatabase: (_id: string | undefined) => void;
     editClient: (n1: number, s1: string, s2: string, s3: string) => void;
 }
 
@@ -58,7 +58,7 @@ const Client = (props: Props) => {
             allergies: allergiesRef.current.value,
             injuries: injuriesRef.current.value
         };
-        auth.id && sendNewClientDataToServer(props.clientDatabaseId, currentData);
+        auth.id && sendNewClientDataToServer(props._id, currentData);
         setEditModeStateBasicInformation(true);
         setEditModeStateAllergies(true);
         setEditModeStateInjuries(true);
@@ -66,10 +66,10 @@ const Client = (props: Props) => {
         setShowSavingAlert(true);
     }
 
-    const sendNewClientDataToServer = async (clientDatabaseId: string | undefined, editedClientData: CurrentData) => {
+    const sendNewClientDataToServer = async (_id: string | undefined, editedClientData: CurrentData) => {
         try {
             const url = process.env.REACT_APP_BASEURL + "/api/trainer-app/save-modified-client-data";
-            const params = {clientDatabaseId: clientDatabaseId, editedClientData: editedClientData};
+            const params = {_id: _id, editedClientData: editedClientData};
             const response = await axios.post(url, params);
             console.log(response.data.message);
         }
@@ -82,7 +82,7 @@ const Client = (props: Props) => {
 
     const deleteClient = () => {
         setShowDeleteAlert(true);
-        auth.id && props.deleteClientFromDatabase(props.clientDatabaseId);
+        auth.id && props.deleteClientFromDatabase(props._id);
         props.deleteClientLocally(props.elementIndex);
         setDeleteDialogOpen(false);
     }

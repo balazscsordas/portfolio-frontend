@@ -12,7 +12,7 @@ import axios from "axios";
 import AuthContext from "../../context/AuthProvider";
 
 type Clients = {
-    clientDatabaseId?: string;
+    _id?: string;
     name: string;
     age: string;
     basicInformation: string;
@@ -30,7 +30,7 @@ type ClientWithoutId = {
 
 type Props = {
     clients: {
-        clientDatabaseId?: string;
+        _id?: string;
         name: string;
         age: string;
         basicInformation: string;
@@ -85,10 +85,10 @@ const AddClients = ({ clients, setClients }: Props) => {
             const url = process.env.REACT_APP_BASEURL + "/api/trainer-app/add-new-client";
             const params = {clientData: data, trainerId: auth.id};
             const response = await axios.post(url, params);
-            const clientDatabaseId: string = response.data.clientDatabaseId;
+            const _id: string = response.data._id;
             console.log(response.data.message);
             const newClientWithId: Clients = {
-                clientDatabaseId: clientDatabaseId,
+                _id: _id,
                 name: data.name,
                 age: data.age,
                 basicInformation: data.basicInformation,
