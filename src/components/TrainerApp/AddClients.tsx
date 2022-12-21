@@ -11,16 +11,11 @@ import MuiAlert from '@mui/material/Alert';
 import axios from "axios";
 import AuthContext from "../../context/AuthProvider";
 
-type Clients = {
+interface Clients extends ClientWithoutId{
     _id?: string;
-    name: string;
-    age: string;
-    basicInformation: string;
-    allergies: string;
-    injuries: string;
   }
 
-type ClientWithoutId = {
+interface ClientWithoutId {
     name: string;
     age: string;
     basicInformation: string;
@@ -28,15 +23,8 @@ type ClientWithoutId = {
     injuries: string;
 }
 
-type Props = {
-    clients: {
-        _id?: string;
-        name: string;
-        age: string;
-        basicInformation: string;
-        allergies: string;
-        injuries: string;
-    }[];
+interface Props {
+    clients: Clients[];
     setClients: React.Dispatch<React.SetStateAction<Clients[]>>;
   }
 

@@ -8,7 +8,7 @@ const AuthenticationPage = () => {
             <BannerPages title="Authentication system"/>
             <ProjectDescription
                 description = "Fully functional authenticational system with bcrypted passwords, Node.js backend and MongoDB database connection."
-                technologiesArray = {["React", "TypeScript", "Node.js", "MongoDB", "Mongoose", "Rest API", "Bootstrap", "Material UI", "Sass"]}
+                technologiesArray = {["React", "TypeScript", "Node.js", "Express.js", "MongoDB", "Mongoose", "Rest API", "Bootstrap", "Material UI", "Sass"]}
             />
             <AuthenticationBlock />
         </>

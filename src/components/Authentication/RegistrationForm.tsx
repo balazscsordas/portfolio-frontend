@@ -25,6 +25,7 @@ function RegistrationForm() {
       password: ""
   })
   const [registrationMessage, setRegistrationMessage] = useState("");
+  const [showRegistrationMessage, setShowRegistrationMessage] = useState(false);
   const [usernameCheckMessage, setUsernameCheckMessage] = useState("");
   const [passwordLengthError, setPasswordLengthError] = useState(<CloseIcon className="close-icon"/>);
   const [passwordNumberSymbolError, setPasswordNumberSymbolError] = useState(<CloseIcon className="close-icon"/>);
@@ -54,6 +55,7 @@ function RegistrationForm() {
         const response = await axios.post(url, params);
         setLoading(false);
         setRegistrationMessage(response.data.message);
+        setShowRegistrationMessage(true);
       } catch(err) {
           err instanceof Error && console.log(err.message);
       }
@@ -73,6 +75,7 @@ function RegistrationForm() {
 
   const usernameValidationCheck = (username: string ) => {
     if (username.length > 4) {
+      setShowRegistrationMessage(false)
       setRegistrationMessage("");
       setUsernameCheckMessage("");
       return true;
@@ -105,6 +108,11 @@ function RegistrationForm() {
       ? setPasswordLowerUpperError(<CheckIcon className="check-icon"/>)
       : setPasswordLowerUpperError(<CloseIcon className="close-icon"/>)
     }, [registrationData.password])
+
+
+  useEffect(() => {
+    setTimeout(() => {setShowRegistrationMessage(false)}, 3000);
+  }, [showRegistrationMessage])
 
   return (
       <section id="registration-section">
@@ -176,7 +184,7 @@ function RegistrationForm() {
                 </Box>
             </Box>
           </Box>
-          <Zoom in={registrationMessage !== ""}>
+          <Zoom in={showRegistrationMessage}>
               <div className="message-block">
                   <p>{registrationMessage}</p>
               </div>

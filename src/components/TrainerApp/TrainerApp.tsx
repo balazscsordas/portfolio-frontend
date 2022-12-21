@@ -6,7 +6,7 @@ import AuthContext from "../../context/AuthProvider";
 
 const TrainerApp = () => {
 
-    type Clients = {
+    interface Clients {
         _id?: string;
         name: string;
         age: string;

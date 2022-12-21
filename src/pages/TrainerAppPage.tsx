@@ -8,7 +8,7 @@ const TrainerAppPage = () => {
             <BannerPages title="Trainer App"/>
             <ProjectDescription
                 description = "An application where trainers can store all of the essential informations about their clients, for example their previous injuries, allergies, their starter weight, and other useful informations. I created two separated collections in the MongoDB database, first one is for the users and the second one is for this application only, it is called clients. The relationship between these two collections is created with the Reference method."
-                technologiesArray = {["React", "TypeScript", "Node.js", "MongoDB", "Rest API", "Material UI", "Bootstrap", "Sass"]}
+                technologiesArray = {["React", "TypeScript", "Node.js", "Express.js", "MongoDB", "Rest API", "Material UI", "Bootstrap", "Sass"]}
             />
             <TrainerApp />
         </>

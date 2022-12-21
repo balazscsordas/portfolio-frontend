@@ -17,7 +17,7 @@ import Zoom from '@mui/material/Zoom';
 import axios from "axios";
 import AuthContext from "../../context/AuthProvider";
 
-type Props = {
+interface Props {
     elementIndex: number;
     _id? : string;
     name: string;
@@ -30,7 +30,7 @@ type Props = {
     editClient: (n1: number, s1: string, s2: string, s3: string) => void;
 }
 
-type CurrentData = {
+interface CurrentData {
     basicInformation: string;
     allergies: string;
     injuries: string;
